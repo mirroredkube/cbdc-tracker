@@ -7,6 +7,7 @@ import { cbdcProjects, CBDCProject } from "@/data/cbdcData";
 import { CBDCGrid } from "@/components/CBDCGrid";
 import { DeepDiveDrawer } from "@/components/DeepDiveDrawer";
 import { LearningInfographic } from "@/components/LearningInfographic";
+import CBDCMap from "@/components/CBDCMap";
 
 export default function Dashboard() {
   const [selectedProject, setSelectedProject] = useState<CBDCProject | null>(null);
@@ -43,6 +44,8 @@ export default function Dashboard() {
            <p className="text-slate-400 text-sm">Select a specific country to explore its primary architecture phase and whitepapers.</p>
         </div>
         
+        <CBDCMap onSelect={handleSelect} />
+
         <CBDCGrid projects={cbdcProjects} onSelect={handleSelect} />
       </main>
 
