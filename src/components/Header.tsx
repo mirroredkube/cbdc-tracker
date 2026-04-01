@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Globe2 } from "lucide-react";
 import clsx from "clsx";
 import { DB_LAST_UPDATED } from "@/data/cbdcData";
+import { NEWS_LAST_UPDATED } from "@/data/newsData";
 
 const NAV_LINKS = [
   { href: "/", label: "Dashboard" },
@@ -13,9 +14,10 @@ const NAV_LINKS = [
   { href: "/watchlist", label: "Watchlist" },
 ];
 
-const dbDate = new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric" }).format(
-  new Date(DB_LAST_UPDATED)
-);
+const fmt = (d: string) =>
+  new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" }).format(new Date(d));
+const dbDate = fmt(DB_LAST_UPDATED);
+const newsDate = fmt(NEWS_LAST_UPDATED);
 
 export function Header() {
   const pathname = usePathname();
@@ -32,8 +34,10 @@ export function Header() {
             <h1 className="text-lg font-bold tracking-tight text-white leading-none">
               Global CBDC Tracker
             </h1>
-            <p className="text-[9px] text-slate-500 font-semibold tracking-widest mt-0.5">
-              Database update: {dbDate}
+            <p className="text-[9px] text-slate-500 font-medium mt-0.5 flex items-center gap-1.5">
+              <span>Database: <span className="text-slate-400">{dbDate}</span></span>
+              <span className="w-1 h-1 rounded-full bg-slate-600 inline-block" />
+              <span>News: <span className="text-slate-400">{newsDate}</span></span>
             </p>
           </div>
         </Link>
