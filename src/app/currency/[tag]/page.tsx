@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { cbdcProjects } from "@/data/cbdcData";
 import { CurrencyDetailClient } from "./CurrencyDetailClient";
-import type { PageProps } from "next/dist/server/app-render/app-render";
 
 export async function generateStaticParams() {
   return cbdcProjects.map((p) => ({ tag: p.tag }));
