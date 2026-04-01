@@ -45,7 +45,7 @@ export const cbdcProjects: CBDCProject[] = [
     region: "Asia",
     isoNumeric: "156",
     description: "The digital yuan (e-CNY) is the world's most advanced CBDC by scale, with over 3.48 billion transactions worth 16.7 trillion yuan (~$2.37T) and 180 million wallets. Expanded to 17 provinces and now used cross-border in Hong Kong, Macau, Laos, Thailand, and Singapore. From January 2026, e-CNY transitions to an interest-bearing instrument.",
-    whitepapers: [{ title: "Progress of Research and Development of E-CNY in China", url: "https://www.pbc.gov.cn/en/3688110/3688172/4157443/4293696/2021071614584691871.pdf" }],
+    whitepapers: [{ title: "Progress of Research and Development of E-CNY in China", url: "https://www.pbc.gov.cn/en/3688110/3688172/4157443/4293696/2021072014364791207.pdf" }],
     flagUrl: "https://flagcdn.com/cn.svg",
     coordinates: [104.1954, 35.8617]
   },
@@ -66,7 +66,7 @@ export const cbdcProjects: CBDCProject[] = [
     region: "Americas",
     isoNumeric: "044",
     description: "The Sand Dollar was the world's first nationwide CBDC, originating to provide financial inclusion for residents residing across the archipelago and unbanked islands.",
-    whitepapers: [{ title: "Project Sand Dollar Whitepaper", url: "https://www.sanddollar.bs/whitepaper" }],
+    whitepapers: [{ title: "Project Sand Dollar: A Bahamian Payments System Modernization Initiative", url: "https://www.centralbankbahamas.com/viewPDF/documents/2019-12-25-02-18-11-Project-Sanddollar.pdf" }],
     flagUrl: "https://flagcdn.com/bs.svg",
     coordinates: [-78.0359, 25.0343]
   },
@@ -89,7 +89,7 @@ export const cbdcProjects: CBDCProject[] = [
     description: "The ECB completed its preparation phase in October 2025, finalizing the rulebook and contracting vendors. The Eurosystem is now inviting payment service providers to join a pilot targeted for mid-2027, with full issuance readiness expected in 2029.",
     whitepapers: [
       { title: "Report on a digital euro", url: "https://www.ecb.europa.eu/paym/digital_euro/html/index.en.html" },
-      { title: "Digital euro prototype summary", url: "https://www.ecb.europa.eu/paym/digital_euro/investigation/prof/shared/pdf/ecb.degov221220_prototype_summary.en.pdf" }
+      { title: "Digital euro prototype summary (May 2023)", url: "https://www.ecb.europa.eu/pub/pdf/other/ecb.prototype_summary20230526~71d0b26d55.en.pdf" }
     ],
     flagUrl: "https://flagcdn.com/eu.svg",
     coordinates: [10.4515, 51.1657]
@@ -132,7 +132,7 @@ export const cbdcProjects: CBDCProject[] = [
     region: "Africa",
     isoNumeric: "566",
     description: "The eNaira launched in 2021 to foster financial inclusion and cross-border trade. As of February 2025, circulation rose to N18.31 billion, but adoption remains extremely low (~0.37% of currency in circulation, with 98.5% of wallets never used). The CBN announced a reevaluation of the program in 2025.",
-    whitepapers: [{ title: "Design Paper for the eNaira", url: "https://enaira.gov.ng/about/design" }],
+    whitepapers: [{ title: "Design Paper for the eNaira", url: "https://www.cbn.gov.ng/Out/2024/RSD/Adoption%20of%20the%20eNaira%20Issues%20and%20the%20way%20forward.pdf" }],
     flagUrl: "https://flagcdn.com/ng.svg",
     coordinates: [8.6753, 9.082]
   },
@@ -155,7 +155,7 @@ export const cbdcProjects: CBDCProject[] = [
     description: "On January 23, 2025, President Trump signed an executive order prohibiting any federal agency from promoting, establishing, or issuing a CBDC, formally terminating all retail and wholesale CBDC development. FedNow (an instant payment rail, not a CBDC) remains operational. The US is the only country to cancel CBDC development by executive order.",
     whitepapers: [
       { title: "Money and Payments: The U.S. Dollar in the Age of Digital Transformation", url: "https://www.federalreserve.gov/publications/money-and-payments-discussion-paper.htm" },
-      { title: "Project Cedar Phase II Report", url: "https://www.newyorkfed.org/aboutthefed/nyic/project-cedar" }
+      { title: "Project Cedar Phase II × Ubin+ Report (PDF)", url: "https://www.newyorkfed.org/medialibrary/media/nyic/project-cedar-phase-two-ubin-report.pdf" }
     ],
     flagUrl: "https://flagcdn.com/us.svg",
     coordinates: [-95.7129, 37.0902]
@@ -240,7 +240,10 @@ export const cbdcProjects: CBDCProject[] = [
     region: "Europe",
     isoNumeric: "826",
     description: "The Bank of England's Digital Pound Lab launched Phase 1 in August 2025 and Phase 2 in November 2025, testing use cases with private sector participants. The BoE and HM Treasury will jointly assess next steps in 2026, with earliest potential issuance in the second half of this decade.",
-    whitepapers: [{ title: "The digital pound: a new form of money for households and businesses?", url: "https://www.bankofengland.co.uk/paper/2023/the-digital-pound-consultation-paper" }],
+    whitepapers: [
+      { title: "The digital pound consultation paper (PDF)", url: "https://www.bankofengland.co.uk/-/media/boe/files/paper/2023/the-digital-pound-consultation-working-paper.pdf" },
+      { title: "Bank of England: The Digital Pound", url: "https://www.bankofengland.co.uk/the-digital-pound" }
+    ],
     flagUrl: "https://flagcdn.com/gb.svg",
     coordinates: [-3.4359, 55.3781]
   },
@@ -305,7 +308,7 @@ export const cbdcProjects: CBDCProject[] = [
     description: "The Monetary Authority of Singapore advances wholesale CBDC and purpose-bound money (PBM). Three major banks (DBS, OCBC, UOB) are using wholesale CBDC for overnight interbank lending, and MAS piloted tokenized MAS bills settled via CBDC in 2025. MAS has confirmed no urgent need for a retail CBDC.",
     whitepapers: [
       { title: "Project Orchid: Purpose Bound Money", url: "https://www.mas.gov.sg/publications/monographs-or-information-paper/2022/project-orchid" },
-      { title: "Project Ubin: Decentralised Inter-bank Payment and Settlement", url: "https://www.mas.gov.sg/schemes-and-initiatives/project-ubin" }
+      { title: "Project Ubin+: Cross-border Connectivity", url: "https://www.mas.gov.sg/schemes-and-initiatives/ubin-plus" }
     ],
     flagUrl: "https://flagcdn.com/sg.svg",
     coordinates: [103.8198, 1.3521]
@@ -327,7 +330,7 @@ export const cbdcProjects: CBDCProject[] = [
     region: "Africa",
     isoNumeric: "710",
     description: "Project Khokha 2x tests distributed ledger technologies for interbank payment settlement and explores wholesale CBDC combined with bank-issued stablecoins for regional African payments. A November 2025 SARB position paper expressed skepticism about the need for a retail CBDC.",
-    whitepapers: [{ title: "Project Khokha 2 Report", url: "https://www.resbank.co.za/en/home/what-we-do/payments-and-settlements/project-khokha-2" }],
+    whitepapers: [{ title: "Project Khokha 2 Full Report (PDF)", url: "https://www.resbank.co.za/content/dam/sarb/publications/media-releases/2022/project-khokha-2/Project%20Khokha%202%20Full%20Report%206%20April%202022.pdf" }],
     flagUrl: "https://flagcdn.com/za.svg",
     coordinates: [22.9375, -30.5595]
   },
@@ -347,7 +350,7 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: false,
     region: "Americas",
     description: "DCash is a multi-country retail CBDC covering 8 Eastern Caribbean Currency Union member states, launched in 2021. It is the world's first multi-country CBDC, enabling seamless cross-island digital payments across Antigua & Barbuda, Dominica, Grenada, Saint Kitts & Nevis, and others.",
-    whitepapers: [{ title: "ECCB DCash Overview", url: "https://www.eccb-centralbank.org/p/about-dcash" }],
+    whitepapers: [{ title: "DCash 2.0 — About", url: "https://www.dcashec.com/about" }],
     flagUrl: "https://flagcdn.com/ag.svg",
     coordinates: [-62.1677, 17.1175]
   },
@@ -368,7 +371,7 @@ export const cbdcProjects: CBDCProject[] = [
     region: "Europe",
     isoNumeric: "643",
     description: "The Digital Ruble pilot launched in August 2023 with 13 banks and has expanded since. Russia is accelerating adoption partly to facilitate sanctions-resistant cross-border transactions. A broader rollout to more banks and citizens is planned through 2025–2026.",
-    whitepapers: [{ title: "Digital Ruble Concept", url: "https://cbr.ru/eng/fintech/dr/" }],
+    whitepapers: [{ title: "Digital Ruble Status Report (June 2025, PDF)", url: "https://www.cbr.ru/Content/Document/File/180336/digital_ruble_30062025_en.pdf" }],
     flagUrl: "https://flagcdn.com/ru.svg",
     coordinates: [105.3188, 61.524]
   },
@@ -389,7 +392,7 @@ export const cbdcProjects: CBDCProject[] = [
     region: "Africa",
     isoNumeric: "288",
     description: "The eCedi is Ghana's retail CBDC proof-of-concept, designed to extend financial services to the unbanked and underbanked populations. Ghana was one of the first African nations to launch a CBDC pilot, focusing on offline functionality for rural areas with limited connectivity.",
-    whitepapers: [{ title: "Bank of Ghana eCedi Sandbox", url: "https://www.bog.gov.gh/financial-stability/fintech-and-innovation/e-cedi/" }],
+    whitepapers: [{ title: "Bank of Ghana — FinTech & Innovation (eCedi)", url: "https://www.bog.gov.gh/fintech-innovation/" }],
     flagUrl: "https://flagcdn.com/gh.svg",
     coordinates: [-1.0232, 7.9465]
   }
