@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { CBDCProject } from "@/data/cbdcData";
 import { CBDCGrid } from "@/components/CBDCGrid";
+import { CurrenciesTable } from "@/components/CurrenciesTable";
 import { DeepDiveDrawer } from "@/components/DeepDiveDrawer";
 import { LearningInfographic } from "@/components/LearningInfographic";
 import { FilterPanel } from "@/components/FilterPanel";
@@ -55,6 +56,8 @@ export default function Dashboard() {
         />
 
         <CBDCGrid projects={filteredProjects} onSelect={setSelectedProject} />
+
+        <CurrenciesTable projects={filteredProjects} onSelect={setSelectedProject} />
       </main>
 
       <AnimatePresence>
