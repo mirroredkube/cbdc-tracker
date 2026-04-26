@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { ChevronUp, ChevronDown, ChevronsUpDown, Settings2, ExternalLink } from "lucide-react";
 import type { CBDCProject } from "@/data/cbdcData";
+import { FlagImage } from "./FlagImage";
 import { StatusPill } from "./StatusPill";
 import { WatchFlag } from "./WatchFlag";
 import clsx from "clsx";
@@ -164,7 +165,12 @@ export function CurrenciesTable({ projects, onSelect }: Props) {
                       {col.key === "currencyName" && (
                         <div className="flex items-center gap-2">
                           {project.flagUrl && (
-                            <img src={project.flagUrl} alt="" className="w-5 h-5 rounded-full object-cover border border-slate-700" />
+                            <FlagImage
+                              src={project.flagUrl}
+                              alt=""
+                              size={20}
+                              className="border border-slate-700"
+                            />
                           )}
                           <span className="font-medium text-white">{project.currencyName}</span>
                         </div>

@@ -5,6 +5,7 @@ import { ExternalLink, FileText, Server, ArrowLeft, Building2, Calendar, Databas
 import type { CBDCProject } from "@/data/cbdcData";
 import { newsItems } from "@/data/newsData";
 import { timelineEvents, TimelineEventType } from "@/data/timelineData";
+import { FlagImage } from "@/components/FlagImage";
 import { StatusPill } from "@/components/StatusPill";
 import { WatchFlag } from "@/components/WatchFlag";
 import { STAGE_COLORS } from "@/components/CBDCMap";
@@ -63,10 +64,11 @@ export function CurrencyDetailClient({ project }: { project: CBDCProject }) {
       {/* Page header */}
       <div className="flex items-start gap-4 mb-8">
         {project.flagUrl && (
-          <img
+          <FlagImage
             src={project.flagUrl}
             alt={`${project.country} flag`}
-            className="w-14 h-14 rounded-full object-cover border-2 border-slate-600 shadow-lg flex-shrink-0"
+            size={56}
+            className="border-2 border-slate-600 shadow-lg flex-shrink-0"
           />
         )}
         <div className="flex-1 min-w-0">

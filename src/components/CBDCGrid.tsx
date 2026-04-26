@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import type { CBDCProject } from "@/data/cbdcData";
+import { FlagImage } from "./FlagImage";
 import { StatusPill } from "./StatusPill";
 import { WatchFlag } from "./WatchFlag";
 
@@ -35,10 +36,11 @@ export function CBDCGrid({ projects, onSelect }: Props) {
           <div className="flex justify-between items-start mb-4">
             <h3 className="text-xl font-bold text-white flex items-center gap-3">
               {project.flagUrl && (
-                <img
+                <FlagImage
                   src={project.flagUrl}
                   alt={`${project.country} flag`}
-                  className="w-8 h-8 rounded-full object-cover shadow-sm border border-slate-600"
+                  size={32}
+                  className="shadow-sm border border-slate-600"
                 />
               )}
               <span className="truncate">{project.country}</span>
