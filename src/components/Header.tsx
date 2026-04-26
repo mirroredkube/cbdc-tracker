@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { href: "/news", label: "News" },
   { href: "/timeline", label: "Timeline" },
   { href: "/compare", label: "Compare" },
+  { href: "/research", label: "Research" },
   { href: "/watchlist", label: "Watchlist" },
 ];
 
