@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, GitCompareArrows } from "lucide-react";
+import Link from "next/link";
 import type { CBDCProject } from "@/data/cbdcData";
 import { FlagImage } from "./FlagImage";
 import { StatusPill } from "./StatusPill";
@@ -47,6 +48,14 @@ export function CBDCGrid({ projects, onSelect }: Props) {
             </h3>
             <div className="flex items-center gap-1 flex-shrink-0">
               <WatchFlag id={project.id} />
+              <Link
+                href={`/compare?a=${project.tag}`}
+                onClick={(e) => e.stopPropagation()}
+                title="Compare"
+                className="p-1.5 rounded-full text-slate-500 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"
+              >
+                <GitCompareArrows className="w-4 h-4" />
+              </Link>
               <div className="p-1.5 rounded-full bg-slate-800 group-hover:bg-blue-500/20 transition-colors">
                 <ChevronRight className="w-5 h-5 text-slate-500 group-hover:text-blue-400 transition-colors" />
               </div>

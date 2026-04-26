@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { href: "/", label: "Dashboard" },
   { href: "/news", label: "News" },
   { href: "/timeline", label: "Timeline" },
+  { href: "/compare", label: "Compare" },
   { href: "/watchlist", label: "Watchlist" },
 ];
 

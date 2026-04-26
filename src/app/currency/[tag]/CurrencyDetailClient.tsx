@@ -4,9 +4,9 @@ import Link from "next/link";
 import {
   ExternalLink, FileText, Server, ArrowLeft, Building2, Calendar,
   Database, Zap, ArrowRight, TrendingUp, Plus, Pencil, Shield,
-  Wifi, WifiOff, Code2, Layers, Lock, Unlock, CircleDollarSign,
+  Wifi, WifiOff, Code2, Layers, Lock, CircleDollarSign,
   Globe, CheckCircle2, AlertCircle, BookOpen, BarChart3, Clock,
-  ShieldAlert, Users, Cpu, Network,
+  ShieldAlert, Users, Cpu, Network, GitCompareArrows,
 } from "lucide-react";
 import type { CBDCProject, RiskProfile, Architecture, Confidence } from "@/data/cbdcData";
 import { newsItems } from "@/data/newsData";
@@ -327,6 +327,13 @@ export function CurrencyDetailClient({ project }: { project: CBDCProject }) {
           <div className="flex items-center gap-3 flex-wrap mb-1">
             <h1 className="text-3xl font-bold text-white">{project.currencyName}</h1>
             <WatchFlag id={project.id} className="scale-125" />
+            <Link
+              href={`/compare?a=${project.tag}`}
+              className="flex items-center gap-1.5 px-3 py-1 rounded-full border border-slate-600 text-slate-400 hover:border-blue-500/50 hover:text-blue-400 transition-colors text-xs font-medium"
+            >
+              <GitCompareArrows className="w-3.5 h-3.5" />
+              Compare
+            </Link>
           </div>
           <p className="text-slate-400 mb-3">{project.country} · {project.centralBank}</p>
           <div className="flex flex-wrap gap-2 items-center">
