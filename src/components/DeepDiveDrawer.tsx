@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { X, FileText, Server, Building2, Calendar, Database, Zap, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import type { CBDCProject } from "@/data/cbdcData";
+import { FlagImage } from "./FlagImage";
 import { StatusPill } from "./StatusPill";
 import { WatchFlag } from "./WatchFlag";
 
@@ -45,10 +46,11 @@ export function DeepDiveDrawer({ project, onClose }: Props) {
         <div className="p-5 border-b border-slate-700/50 flex justify-between items-center bg-slate-800/80">
           <div className="flex items-center gap-3 min-w-0">
             {project.flagUrl && (
-              <img
+              <FlagImage
                 src={project.flagUrl}
                 alt={`${project.country} flag`}
-                className="w-9 h-9 rounded-full object-cover border border-slate-600 shadow-sm flex-shrink-0"
+                size={36}
+                className="border border-slate-600 shadow-sm flex-shrink-0"
               />
             )}
             <div className="min-w-0">

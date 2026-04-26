@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Bookmark, ExternalLink, Mail, CheckCircle, Loader2 } from "lucide-react";
 import { cbdcProjects, CBDCProject } from "@/data/cbdcData";
+import { FlagImage } from "@/components/FlagImage";
 import { useWatchlist } from "@/hooks/useWatchlist";
 import { StatusPill } from "@/components/StatusPill";
 import { WatchFlag } from "@/components/WatchFlag";
@@ -39,10 +40,11 @@ function WatchlistRow({ project }: { project: CBDCProject }) {
     <div className="flex items-center gap-4 p-4 glass-panel rounded-xl hover:border-slate-600/50 hover:bg-slate-800/80 transition-all">
       <div className="flex items-center gap-3 flex-1 min-w-0">
         {project.flagUrl && (
-          <img
+          <FlagImage
             src={project.flagUrl}
             alt=""
-            className="w-8 h-8 rounded-full object-cover border border-slate-600 flex-shrink-0"
+            size={32}
+            className="border border-slate-600 flex-shrink-0"
           />
         )}
         <div className="min-w-0">
