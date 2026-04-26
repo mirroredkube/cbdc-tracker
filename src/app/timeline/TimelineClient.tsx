@@ -6,6 +6,7 @@ import { ArrowRight, TrendingUp, Plus, Pencil, Trash2 } from "lucide-react";
 import { timelineEvents, TimelineEvent, TimelineEventType } from "@/data/timelineData";
 import { cbdcProjects } from "@/data/cbdcData";
 import { STAGE_COLORS } from "@/components/CBDCMap";
+import { FlagImage } from "@/components/FlagImage";
 
 const BATCH_SIZE = 15;
 
@@ -94,7 +95,12 @@ function EventCard({ event }: { event: TimelineEvent }) {
 
           <div className="flex items-center gap-2 mt-2">
             {project?.flagUrl && (
-              <img src={project.flagUrl} alt="" className="w-4 h-4 rounded-full object-cover border border-slate-700" />
+              <FlagImage
+                src={project.flagUrl}
+                alt=""
+                size={16}
+                className="border border-slate-700"
+              />
             )}
             <Link
               href={`/currency/${event.tag}`}

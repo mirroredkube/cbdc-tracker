@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { ExternalLink, Search, X } from "lucide-react";
 import { newsItems, NewsItem } from "@/data/newsData";
 import { cbdcProjects } from "@/data/cbdcData";
+import { FlagImage } from "@/components/FlagImage";
 
 const PAGE_SIZE = 8;
 
@@ -48,7 +49,7 @@ function NewsCard({ item }: { item: NewsItem }) {
             className="text-xs text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded-full flex items-center gap-1"
           >
             {p.flagUrl && (
-              <img src={p.flagUrl} alt="" className="w-3 h-3 rounded-full object-cover" />
+              <FlagImage src={p.flagUrl} alt="" size={12} />
             )}
             {p.currencyName}
           </span>

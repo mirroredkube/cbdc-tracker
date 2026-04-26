@@ -10,6 +10,7 @@ import {
 } from "react-simple-maps";
 import { Plus, Minus } from "lucide-react";
 import { cbdcProjects, EU_MEMBER_ISO_NUMERICS, CBDCProject, Stage } from "@/data/cbdcData";
+import { FlagImage } from "./FlagImage";
 
 // Use 50m for better small-country coverage (includes Singapore)
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json";
@@ -215,10 +216,11 @@ const CBDCMap = ({ onSelect, activeStages, onToggleStage }: Props) => {
         >
           <div className="flex items-center gap-2 mb-1.5">
             {tooltip.project.flagUrl && (
-              <img
+              <FlagImage
                 src={tooltip.project.flagUrl}
                 alt=""
-                className="w-5 h-5 rounded-full object-cover border border-slate-600"
+                size={20}
+                className="border border-slate-600"
               />
             )}
             <span className="text-sm font-bold text-white truncate">{tooltip.project.country}</span>
