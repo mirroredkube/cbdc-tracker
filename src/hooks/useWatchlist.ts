@@ -1,21 +1,24 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 
 const STORAGE_KEY = "cbdc-watchlist";
 
-export function useWatchlist() {
-  // Initialize empty — localStorage is only available after hydration
-  const [watchlist, setWatchlist] = useState<Set<string>>(new Set());
+function readInitialWatchlist() {
+  if (typeof window === "undefined") {
+    return new Set<string>();
+  }
 
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) setWatchlist(new Set(JSON.parse(stored) as string[]));
-    } catch {
-      // ignore parse errors
-    }
-  }, []);
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored ? new Set(JSON.parse(stored) as string[]) : new Set<string>();
+  } catch {
+    return new Set<string>();
+  }
+}
+
+export function useWatchlist() {
+  const [watchlist, setWatchlist] = useState<Set<string>>(readInitialWatchlist);
 
   const toggle = useCallback((id: string) => {
     setWatchlist((prev) => {

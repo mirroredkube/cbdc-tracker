@@ -90,7 +90,6 @@ export function NewsClient() {
     return items;
   }, [search, filterCurrency]);
 
-  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const visible = filtered.slice(0, page * PAGE_SIZE);
   const hasMore = page * PAGE_SIZE < filtered.length;
 

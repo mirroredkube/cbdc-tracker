@@ -30,6 +30,11 @@ interface TooltipData {
   y: number;
 }
 
+interface MapGeography {
+  id: string;
+  rsmKey: string;
+}
+
 interface Props {
   onSelect: (project: CBDCProject) => void;
   activeStages?: Set<Stage>;
@@ -37,13 +42,23 @@ interface Props {
 }
 
 const CBDCMap = ({ onSelect, activeStages, onToggleStage }: Props) => {
-  const [mounted, setMounted] = useState(false);
   const [zoom, setZoom] = useState(1);
   const [center, setCenter] = useState<[number, number]>([0, 20]);
   const [tooltip, setTooltip] = useState<TooltipData | null>(null);
+  const [containerWidth, setContainerWidth] = useState(400);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    const node = containerRef.current;
+    if (!node) return;
+
+    const updateWidth = () => setContainerWidth(node.offsetWidth || 400);
+    updateWidth();
+
+    const observer = new ResizeObserver(updateWidth);
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   // Build lookup maps from project data
   const isoToProject = new Map<string, CBDCProject>();
@@ -64,23 +79,6 @@ const CBDCMap = ({ onSelect, activeStages, onToggleStage }: Props) => {
     if (euSet.has(geoId) && euProject && isActive(euProject.stage)) return STAGE_COLORS[euProject.stage];
     return "#1e293b";
   };
-
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>, project: CBDCProject) => {
-      const rect = containerRef.current?.getBoundingClientRect();
-      if (!rect) return;
-      setTooltip({ project, x: e.clientX - rect.left, y: e.clientY - rect.top });
-    },
-    []
-  );
-
-  if (!mounted) {
-    return (
-      <div className="w-full glass-panel rounded-2xl p-4 md:p-8 mb-10 min-h-[420px] flex items-center justify-center">
-        <div className="w-10 h-10 rounded-full border-2 border-slate-700 border-t-blue-500 animate-spin" />
-      </div>
-    );
-  }
 
   return (
     <div
@@ -152,8 +150,8 @@ const CBDCMap = ({ onSelect, activeStages, onToggleStage }: Props) => {
           }}
         >
           <Geographies geography={geoUrl}>
-            {({ geographies }: { geographies: any[] }) =>
-              geographies.map((geo: any) => {
+            {({ geographies }: { geographies: MapGeography[] }) =>
+              geographies.map((geo) => {
                 const project = isoToProject.get(geo.id) ?? (euSet.has(geo.id) ? euProject : undefined);
                 const fill = getFill(geo.id);
                 const hasData = !!project && isActive(project.stage);
@@ -211,7 +209,7 @@ const CBDCMap = ({ onSelect, activeStages, onToggleStage }: Props) => {
         <div
           className="pointer-events-none absolute z-30 bg-slate-800 border border-slate-600/50 rounded-xl shadow-2xl p-3 w-52"
           style={{
-            left: Math.min(tooltip.x + 12, (containerRef.current?.offsetWidth ?? 400) - 224),
+            left: Math.min(tooltip.x + 12, containerWidth - 224),
             top: tooltip.y - 10,
           }}
         >

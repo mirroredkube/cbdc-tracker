@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { AnimatePresence } from "framer-motion";
 import { CBDCProject } from "@/data/cbdcData";
 import { CBDCGrid } from "@/components/CBDCGrid";
@@ -8,8 +9,9 @@ import { CurrenciesTable } from "@/components/CurrenciesTable";
 import { DeepDiveDrawer } from "@/components/DeepDiveDrawer";
 import { LearningInfographic } from "@/components/LearningInfographic";
 import { FilterPanel } from "@/components/FilterPanel";
-import CBDCMap from "@/components/CBDCMap";
 import { useFilters } from "@/hooks/useFilters";
+
+const CBDCMap = dynamic(() => import("@/components/CBDCMap"), { ssr: false });
 
 export default function Dashboard() {
   const [selectedProject, setSelectedProject] = useState<CBDCProject | null>(null);

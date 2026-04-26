@@ -92,7 +92,7 @@ function SubscriptionForm() {
         Subscription settings
       </h2>
       <p className="text-sm text-slate-400 mb-4">
-        Enter your email to receive updates for your watched currencies. We'll notify you when their status changes.
+        Enter your email to receive updates for your watched currencies. We&apos;ll notify you when their status changes.
       </p>
 
       {status === "success" ? (
@@ -127,7 +127,6 @@ function SubscriptionForm() {
 export function WatchlistClient() {
   const { watchlist } = useWatchlist();
   const watched = cbdcProjects.filter((p) => watchlist.has(p.id));
-  const watchedIds = new Set(watched.map((p) => p.id));
 
   return (
     <div className="max-w-4xl mx-auto px-4 md:px-8 py-8">
