@@ -25,7 +25,7 @@ export interface CBDCProject {
   coordinates: [number, number];   // [longitude, latitude]
 }
 
-export const DB_LAST_UPDATED = "2026-03-31";
+export const DB_LAST_UPDATED = "2026-04-26";
 
 export const cbdcProjects: CBDCProject[] = [
   {
@@ -44,8 +44,11 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: true,
     region: "Asia",
     isoNumeric: "156",
-    description: "The digital yuan (e-CNY) is the world's most advanced CBDC by scale, with over 3.48 billion transactions worth 16.7 trillion yuan (~$2.37T) and 180 million wallets. Expanded to 17 provinces and now used cross-border in Hong Kong, Macau, Laos, Thailand, and Singapore. From January 2026, e-CNY transitions to an interest-bearing instrument.",
-    whitepapers: [{ title: "Progress of Research and Development of E-CNY in China", url: "https://www.pbc.gov.cn/en/3688110/3688172/4157443/4293696/2021072014364791207.pdf" }],
+    description: "China's e-CNY remains the most mature large-scale CBDC deployment. The PBOC continues to promote the e-CNY 'actively and prudently' as part of its digital-finance agenda, while maintaining a dedicated CBDC section and ongoing policy work through 2026.",
+    whitepapers: [
+      { title: "PBOC CBDC topic page", url: "https://www.pbc.gov.cn/en/3688006/4706656/index.html" },
+      { title: "Progress of Research and Development of E-CNY in China", url: "https://www.pbc.gov.cn/en/3688110/3688172/4157443/4293696/2021072014364791207.pdf" }
+    ],
     flagUrl: "https://flagcdn.com/cn.svg",
     coordinates: [104.1954, 35.8617]
   },
@@ -86,10 +89,11 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: true,
     region: "Europe",
     euMemberFill: true,
-    description: "The ECB completed its preparation phase in October 2025, finalizing the rulebook and contracting vendors. The Eurosystem is now inviting payment service providers to join a pilot targeted for mid-2027, with full issuance readiness expected in 2029.",
+    description: "The ECB moved the digital euro into its next project phase in October 2025. In March and April 2026 it opened additional rulebook workstreams, called for pilot participants, and signed agreements with European standard setters to support online and contactless payments. Issuance still depends on EU legislation.",
     whitepapers: [
-      { title: "Report on a digital euro", url: "https://www.ecb.europa.eu/paym/digital_euro/html/index.en.html" },
-      { title: "Digital euro prototype summary (May 2023)", url: "https://www.ecb.europa.eu/pub/pdf/other/ecb.prototype_summary20230526~71d0b26d55.en.pdf" }
+      { title: "Digital euro", url: "https://www.ecb.europa.eu/euro/digital_euro/html/index.eu.html" },
+      { title: "ECB signs agreements with European standard setters to facilitate digital euro payments", url: "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr260424~202f9d832b.en.html" },
+      { title: "The digital euro: preparing for a potential launch", url: "https://www.ecb.europa.eu/press/key/date/2026/html/ecb.sp260324~66f71f7577.en.html" }
     ],
     flagUrl: "https://flagcdn.com/eu.svg",
     coordinates: [10.4515, 51.1657]
@@ -110,8 +114,11 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: true,
     region: "Americas",
     isoNumeric: "076",
-    description: "Drex is Brazil's digital real, a wholesale token on a permissioned DLT enabling programmable, tokenized deposits. Phase 1 report was published in February 2025 and Phase 3 focuses on tokenization and credit. A phased public launch is expected in the first half of 2026.",
-    whitepapers: [{ title: "Drex Pilot Implementation Guidelines", url: "https://www.bcb.gov.br/en/financialstability/drex" }],
+    description: "Drex remains in pilot mode on a Banco Central do Brasil-operated DLT platform. The official public material continues to describe Drex as a digital-real platform for wholesale settlement with retail access provided by regulated intermediaries, while Phase 2 pilot reporting is still being finalized.",
+    whitepapers: [
+      { title: "Drex - Digital Brazilian Real", url: "https://www.bcb.gov.br/en/financialstability/drex_en" },
+      { title: "Piloto Drex", url: "https://www.bcb.gov.br/estabilidadefinanceira/real-digital-piloto" }
+    ],
     flagUrl: "https://flagcdn.com/br.svg",
     coordinates: [-51.9253, -14.235]
   },
@@ -140,9 +147,9 @@ export const cbdcProjects: CBDCProject[] = [
     id: "usa",
     tag: "us-cbdc",
     country: "USA",
-    currencyName: "US CBDC (Cancelled)",
-    stage: "Cancelled",
-    type: "Wholesale",
+    currencyName: "US CBDC",
+    stage: "Research",
+    type: "Both",
     techStack: "Federal Reserve RLN/NYIC",
     technologyProvider: "Federal Reserve / NYIC",
     centralBank: "Federal Reserve",
@@ -152,9 +159,10 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: false,
     region: "Americas",
     isoNumeric: "840",
-    description: "On January 23, 2025, President Trump signed an executive order prohibiting any federal agency from promoting, establishing, or issuing a CBDC, formally terminating all retail and wholesale CBDC development. FedNow (an instant payment rail, not a CBDC) remains operational. The US is the only country to cancel CBDC development by executive order.",
+    description: "The U.S. has not committed to issuing a CBDC. A January 23, 2025 White House executive order prohibits executive agencies from establishing, issuing, or promoting a CBDC, but the Federal Reserve's public CBDC page still states that it has made no decision on whether to pursue or implement one.",
     whitepapers: [
-      { title: "Money and Payments: The U.S. Dollar in the Age of Digital Transformation", url: "https://www.federalreserve.gov/publications/money-and-payments-discussion-paper.htm" },
+      { title: "Federal Reserve CBDC topic page", url: "https://www.federalreserve.gov/central-bank-digital-currency.htm" },
+      { title: "Strengthening American Leadership in Digital Financial Technology", url: "https://www.whitehouse.gov/presidential-actions/2025/01/strengthening-american-leadership-in-digital-financial-technology/" },
       { title: "Project Cedar Phase II × Ubin+ Report (PDF)", url: "https://www.newyorkfed.org/medialibrary/media/nyic/project-cedar-phase-two-ubin-report.pdf" }
     ],
     flagUrl: "https://flagcdn.com/us.svg",
@@ -176,8 +184,11 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: true,
     region: "Asia",
     isoNumeric: "356",
-    description: "The Digital Rupee (e₹) is the second-largest CBDC pilot globally. Circulation reached ₹10.16 billion ($122M) by March 2025, up 334% year-over-year. Both the retail (e₹-R) and wholesale (e₹-W) segments are expanding with offline functionality and broader bank participation.",
-    whitepapers: [{ title: "Concept Note on Central Bank Digital Currency", url: "https://rbi.org.in/Scripts/PublicationReportDetails.aspx?UrlPage=&ID=1218" }],
+    description: "India's e₹ program remains in pilot mode across retail and wholesale tracks. Recent official use cases include programmable CBDC distribution for food subsidies in Puducherry, alongside continued work on offline functionality and broader ecosystem participation.",
+    whitepapers: [
+      { title: "Concept Note on Central Bank Digital Currency", url: "https://rbi.org.in/Scripts/PublicationReportDetails.aspx?UrlPage=&ID=1218" },
+      { title: "Government of India launches CBDC-based Digital Food Currency pilot", url: "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2233186" }
+    ],
     flagUrl: "https://flagcdn.com/in.svg",
     coordinates: [78.9629, 20.5937]
   },
@@ -218,8 +229,11 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: false,
     region: "Asia",
     isoNumeric: "392",
-    description: "The Bank of Japan has been running a proof-of-concept since April 2023 with 64 private companies across 7 working groups; a progress report was released in May 2025. The BoJ has explicitly stated it has no plans to launch a CBDC, citing Japan's continued high cash usage, but experimental work continues.",
-    whitepapers: [{ title: "The Bank of Japan's Approach to Central Bank Digital Currency", url: "https://www.boj.or.jp/en/paym/digital/index.htm" }],
+    description: "The Bank of Japan continues a CBDC pilot program and CBDC Forum work with private-sector participants, while still stopping short of any issuance decision. Its February and March 2026 committee and working-group materials show experimentation is continuing rather than moving toward launch.",
+    whitepapers: [
+      { title: "Central Bank Digital Currency", url: "https://www.boj.or.jp/en/paym/digital" },
+      { title: "CBDC Forum", url: "https://www.boj.or.jp/en/paym/digital/d_forum/index.htm" }
+    ],
     flagUrl: "https://flagcdn.com/jp.svg",
     coordinates: [138.2529, 36.2048]
   },
@@ -239,10 +253,11 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: false,
     region: "Europe",
     isoNumeric: "826",
-    description: "The Bank of England's Digital Pound Lab launched Phase 1 in August 2025 and Phase 2 in November 2025, testing use cases with private sector participants. The BoE and HM Treasury will jointly assess next steps in 2026, with earliest potential issuance in the second half of this decade.",
+    description: "The UK remains in the design phase for a potential digital pound. The Bank of England says the current design phase ends in 2026, the Digital Pound Lab is running through July 2026, and a later-2026 assessment will decide whether to proceed to a build phase.",
     whitepapers: [
-      { title: "The digital pound consultation paper (PDF)", url: "https://www.bankofengland.co.uk/-/media/boe/files/paper/2023/the-digital-pound-consultation-working-paper.pdf" },
-      { title: "Bank of England: The Digital Pound", url: "https://www.bankofengland.co.uk/the-digital-pound" }
+      { title: "The digital pound", url: "https://www.bankofengland.co.uk/the-digital-pound" },
+      { title: "Progress update: Digital Pound Design Phase", url: "https://www.bankofengland.co.uk/the-digital-pound/progress-update-digital-pound-design-phase" },
+      { title: "Digital Pound Lab", url: "https://www.bankofengland.co.uk/the-digital-pound/lab" }
     ],
     flagUrl: "https://flagcdn.com/gb.svg",
     coordinates: [-3.4359, 55.3781]
@@ -329,8 +344,11 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: true,
     region: "Africa",
     isoNumeric: "710",
-    description: "Project Khokha 2x tests distributed ledger technologies for interbank payment settlement and explores wholesale CBDC combined with bank-issued stablecoins for regional African payments. A November 2025 SARB position paper expressed skepticism about the need for a retail CBDC.",
-    whitepapers: [{ title: "Project Khokha 2 Full Report (PDF)", url: "https://www.resbank.co.za/content/dam/sarb/publications/media-releases/2022/project-khokha-2/Project%20Khokha%202%20Full%20Report%206%20April%202022.pdf" }],
+    description: "South Africa's CBDC-related work remains focused on wholesale experimentation under Project Khokha. The SARB's published material continues to center on interbank settlement and broader payment-system experimentation rather than a live retail rollout.",
+    whitepapers: [
+      { title: "Project Khokha 2 Full Report (PDF)", url: "https://www.resbank.co.za/content/dam/sarb/publications/media-releases/2022/project-khokha-2/Project%20Khokha%202%20Full%20Report%206%20April%202022.pdf" },
+      { title: "SARB position paper on the necessity of a retail CBDC in South Africa", url: "https://www.resbank.co.za/en/home/publications/publication-detail-pages/Fintech/sarb-position-paper-on-the-necessity-of-a-retail-cbdc-in-south-a" }
+    ],
     flagUrl: "https://flagcdn.com/za.svg",
     coordinates: [22.9375, -30.5595]
   },
@@ -339,18 +357,21 @@ export const cbdcProjects: CBDCProject[] = [
     tag: "dcash",
     country: "Eastern Caribbean",
     currencyName: "DCash",
-    stage: "Launched",
+    stage: "Research",
     type: "Retail",
     techStack: "Bitt Inc. (Hyperledger Fabric)",
     technologyProvider: "Bitt Inc.",
     centralBank: "Eastern Caribbean Central Bank (ECCB)",
     announcementYear: 2019,
-    updateRate: "Quarterly",
+    updateRate: "Ad hoc",
     usesDLT: true,
     interoperable: false,
     region: "Americas",
-    description: "DCash is a multi-country retail CBDC covering 8 Eastern Caribbean Currency Union member states, launched in 2021. It is the world's first multi-country CBDC, enabling seamless cross-island digital payments across Antigua & Barbuda, Dominica, Grenada, Saint Kitts & Nevis, and others.",
-    whitepapers: [{ title: "DCash 2.0 — About", url: "https://www.dcashec.com/about" }],
+    description: "ECCB's DCash pilot was the world's first multi-country CBDC in a currency union, but the central bank said in January 2025 that the pilot had concluded in January 2024. Preliminary work is under way on a commercial-deployment model described as 'DCash 2.0', and the project is no longer operating as a live public CBDC service.",
+    whitepapers: [
+      { title: "D-Cash", url: "https://www.eccb-centralbank.org/d-cash" },
+      { title: "ECCB warns of fraudulent stablecoin", url: "https://www.eccb-centralbank.org/news/eccb-warns-of-fraudulent-stablecoin" }
+    ],
     flagUrl: "https://flagcdn.com/ag.svg",
     coordinates: [-62.1677, 17.1175]
   },
@@ -370,8 +391,12 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: false,
     region: "Europe",
     isoNumeric: "643",
-    description: "The Digital Ruble pilot launched in August 2023 with 13 banks and has expanded since. Russia is accelerating adoption partly to facilitate sanctions-resistant cross-border transactions. A broader rollout to more banks and citizens is planned through 2025–2026.",
-    whitepapers: [{ title: "Digital Ruble Status Report (June 2025, PDF)", url: "https://www.cbr.ru/Content/Document/File/180336/digital_ruble_30062025_en.pdf" }],
+    description: "Russia's digital ruble remains in pilot use, but the Bank of Russia has set 1 September 2026 as the start of wider staged adoption for major banks and large merchants. Official 2026 updates also show the platform expanding to bulk payouts and cross-border CBDC settlement rules within the pilot.",
+    whitepapers: [
+      { title: "Digital ruble services expand", url: "https://cbr.ru/eng/press/event/?id=28340" },
+      { title: "Large-scale introduction of digital ruble to begin on 1 September 2026", url: "https://www.cbr.ru/eng/press/event/?id=25774" },
+      { title: "Digital ruble today and tomorrow: Bank of Russia's report on pilot testing", url: "https://www.cbr.ru/eng/press/event/?id=24743" }
+    ],
     flagUrl: "https://flagcdn.com/ru.svg",
     coordinates: [105.3188, 61.524]
   },
@@ -391,8 +416,12 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: false,
     region: "Africa",
     isoNumeric: "288",
-    description: "The eCedi is Ghana's retail CBDC proof-of-concept, designed to extend financial services to the unbanked and underbanked populations. Ghana was one of the first African nations to launch a CBDC pilot, focusing on offline functionality for rural areas with limited connectivity.",
-    whitepapers: [{ title: "Bank of Ghana — FinTech & Innovation (eCedi)", url: "https://www.bog.gov.gh/fintech-innovation/" }],
+    description: "Ghana continues to treat the eCedi as a proof-of-concept focused on inclusion, offline payments, and future interoperability. In April 2026 the Bank of Ghana republished its design paper and eCedi report on its current site, signaling that the project remains active as an exploratory program rather than a launched currency.",
+    whitepapers: [
+      { title: "Design Paper of the Digital Cedi (eCedi)", url: "https://www.bog.gov.gh/news/design-paper-of-the-digital-cedi-ecedi/" },
+      { title: "The eCedi Report", url: "https://www.bog.gov.gh/news/the-ecedi-report/" },
+      { title: "Bank of Ghana — eCedi Hackathon", url: "https://www.bog.gov.gh/ecedihackathon/" }
+    ],
     flagUrl: "https://flagcdn.com/gh.svg",
     coordinates: [-1.0232, 7.9465]
   }

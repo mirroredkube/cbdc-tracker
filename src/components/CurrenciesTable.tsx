@@ -159,7 +159,6 @@ export function CurrenciesTable({ projects, onSelect }: Props) {
                 )}
               >
                 {activeColumns.map((col) => {
-                  const val = project[col.key];
                   return (
                     <td key={col.key} className="px-4 py-3 whitespace-nowrap">
                       {col.key === "currencyName" && (

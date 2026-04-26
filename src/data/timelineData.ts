@@ -143,6 +143,28 @@ export const timelineEvents: TimelineEvent[] = [
   },
   // 2026
   {
+    id: "t51",
+    date: "2026-04-24",
+    type: "updated",
+    currencyId: "eu",
+    currencyName: "Digital Euro",
+    country: "European Union",
+    tag: "digital-euro",
+    description: "ECB signs agreements with European standard setters to support contactless and online digital euro payment flows",
+    field: "Payment Standards",
+  },
+  {
+    id: "t52",
+    date: "2026-04-14",
+    type: "updated",
+    currencyId: "gha",
+    currencyName: "eCedi",
+    country: "Ghana",
+    tag: "ecedi",
+    description: "Bank of Ghana republishes the eCedi design paper and eCedi report on its current website, reaffirming the project remains active",
+    field: "Project Documentation",
+  },
+  {
     id: "t01",
     date: "2026-01-01",
     type: "status_updated",
@@ -157,14 +179,16 @@ export const timelineEvents: TimelineEvent[] = [
   },
   {
     id: "t02",
-    date: "2026-01-28",
-    type: "updated",
+    date: "2025-01-24",
+    type: "status_updated",
     currencyId: "ecs",
     currencyName: "DCash",
     country: "Eastern Caribbean",
     tag: "dcash",
-    description: "DCash marks five years of operation; coverage confirmed across all 8 ECCU member states",
-    field: "Coverage",
+    description: "ECCB says the DCash pilot concluded in January 2024 and that preliminary work is under way on a commercial deployment model called DCash 2.0",
+    previousValue: "Launched",
+    newValue: "Research",
+    field: "Stage",
   },
 
   // 2025 Q4
@@ -335,15 +359,13 @@ export const timelineEvents: TimelineEvent[] = [
   {
     id: "t17",
     date: "2025-01-23",
-    type: "status_updated",
+    type: "updated",
     currencyId: "usa",
     currencyName: "US CBDC",
     country: "USA",
     tag: "us-cbdc",
-    description: "Trump executive order formally cancels all US CBDC development",
-    previousValue: "Research",
-    newValue: "Cancelled",
-    field: "Stage",
+    description: "White House executive order bars executive agencies from establishing, issuing, or promoting a CBDC, while the Federal Reserve continues to say it has made no decision to pursue one",
+    field: "Federal Policy",
   },
 
   // 2024
