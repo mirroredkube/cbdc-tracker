@@ -1,0 +1,524 @@
+export type ResearchTag =
+  | "architecture"
+  | "adoption"
+  | "privacy"
+  | "financial-stability"
+  | "cross-border"
+  | "programmability"
+  | "DLT"
+  | "financial-inclusion"
+  | "monetary-policy"
+  | "interoperability"
+  | "risk"
+  | "retail-CBDC"
+  | "wholesale-CBDC"
+  | "case-study"
+  | "comparative"
+  | "regulation"
+  | "geopolitics"
+  | "offline"
+  | "tokenization";
+
+export type Institution =
+  | "BIS"
+  | "IMF"
+  | "ECB"
+  | "Federal Reserve"
+  | "World Bank"
+  | "NBER"
+  | "Academic"
+  | "Think Tank"
+  | "Central Bank"
+  | "OMFIF";
+
+export interface ResearchPaper {
+  id: string;
+  title: string;
+  authors: string[];
+  institution: Institution;
+  date: string;            // ISO date (YYYY-MM-DD or YYYY-MM)
+  url: string;
+  abstract: string;
+  tags: ResearchTag[];
+  relevantCbdcIds: string[];  // matches CBDCProject.id
+  keyFindings: string[];      // 2–4 bullet-point findings
+}
+
+export const researchPapers: ResearchPaper[] = [
+  {
+    id: "bis-wp880",
+    title: "Proceeding with caution — a survey on central bank digital currency",
+    authors: ["Raphael Auer", "Giulio Cornelli", "Jon Frost"],
+    institution: "BIS",
+    date: "2020-01",
+    url: "https://www.bis.org/publ/work880.pdf",
+    abstract: "This paper surveys central bank research and policy work on CBDC. It finds that central banks representing a fifth of the world's population are likely to issue retail CBDCs within the next three years, and maps the key design choices and tradeoffs facing issuers.",
+    tags: ["comparative", "architecture", "retail-CBDC", "wholesale-CBDC"],
+    relevantCbdcIds: [],
+    keyFindings: [
+      "80% of central banks were engaged in CBDC work as of 2019, up from 65% in 2017",
+      "Emerging market central banks are more likely to issue CBDC in short-to-medium term than advanced economy peers",
+      "Financial inclusion and payment safety/efficiency are the dominant motivations",
+      "Key design choices include: access (account vs token), degree of anonymity, transfer mechanism, and interest-bearing features",
+    ],
+  },
+  {
+    id: "bis-wp941",
+    title: "Rise of the central bank digital currencies: drivers, approaches and technologies",
+    authors: ["Raphael Auer", "Giulio Cornelli", "Jon Frost"],
+    institution: "BIS",
+    date: "2020-08",
+    url: "https://www.bis.org/publ/work941.pdf",
+    abstract: "An empirical analysis of what drives countries to research and develop CBDCs, focusing on domestic payment needs, cryptocurrency development, and the role of China's e-CNY in motivating other central banks.",
+    tags: ["comparative", "architecture", "geopolitics", "DLT"],
+    relevantCbdcIds: ["chn"],
+    keyFindings: [
+      "Countries with faster payment systems are less likely to develop retail CBDC",
+      "China's e-CNY development is a significant motivating factor for other central banks",
+      "Cryptocurrency penetration is positively correlated with CBDC research intensity",
+      "DLT is more common in wholesale CBDC designs than retail",
+    ],
+  },
+  {
+    id: "imf-dp2022",
+    title: "Behind the Scenes of Central Bank Digital Currency: Emerging Trends, Insights, and Policy Lessons",
+    authors: ["Tanai Khiaonarong", "David Goodman"],
+    institution: "IMF",
+    date: "2022-06",
+    url: "https://www.imf.org/en/Publications/fintech-notes/Issues/2022/06/22/Behind-the-Scenes-of-Central-Bank-Digital-Currency-Emerging-Trends-Insights-and-Policy-519055",
+    abstract: "Drawing on case studies from nine countries, this IMF note examines operational and technical aspects of CBDC design, identifying common patterns and key decision points that central banks face.",
+    tags: ["architecture", "case-study", "comparative", "retail-CBDC"],
+    relevantCbdcIds: ["chn", "bhs", "nga", "jam", "swe"],
+    keyFindings: [
+      "Two-tier distribution is the dominant model — central banks prefer to retain commercial bank intermediation",
+      "Offline capability remains technically challenging; only a few projects have workable solutions",
+      "KYC/AML requirements create fundamental tension with privacy and financial inclusion goals",
+      "Most retail CBDC projects are non-interest-bearing to avoid disintermediating commercial banks",
+    ],
+  },
+  {
+    id: "ecb-wp2006",
+    title: "Tiered CBDC and the financial system",
+    authors: ["Fabio Panetta"],
+    institution: "ECB",
+    date: "2021-01",
+    url: "https://www.ecb.europa.eu/pub/pdf/scpwps/ecb.wp2526~3cbcb6bc48.en.pdf",
+    abstract: "This ECB working paper analyzes how a tiered digital euro could be designed to limit the risk of bank disintermediation while still achieving the goals of a public digital currency.",
+    tags: ["financial-stability", "architecture", "retail-CBDC", "monetary-policy"],
+    relevantCbdcIds: ["eu"],
+    keyFindings: [
+      "Remunerated holdings above a threshold (tiered design) can limit bank run amplification",
+      "A €3,000 holding limit reduces disintermediation risk by approximately 60% in crisis scenarios",
+      "Non-interest-bearing CBDC is the most conservative approach but may limit adoption",
+      "The digital euro's dual role as both payment instrument and store of value creates design tensions",
+    ],
+  },
+  {
+    id: "fed-hamilton",
+    title: "A High Performance Payment Processing System Designed for Central Bank Digital Currencies",
+    authors: ["James Lovejoy", "Cory Fields", "Madars Virza", "Tyler Frederick", "David Urness", "Kevin Karwaski"],
+    institution: "Federal Reserve",
+    date: "2022-02",
+    url: "https://www.bostonfed.org/publications/one-time-pubs/project-hamilton-phase-1-executive-summary.pdf",
+    abstract: "Project Hamilton (MIT Digital Currency Initiative & Boston Fed) built and tested two CBDC architectures achieving 1.7 million transactions per second — demonstrating that performance is not a binding constraint for US CBDC.",
+    tags: ["architecture", "DLT", "retail-CBDC"],
+    relevantCbdcIds: ["usa"],
+    keyFindings: [
+      "Achieved 1.7M TPS — 170× faster than Visa's average, demonstrating CBDC can scale beyond existing payment systems",
+      "Transaction finality under 2 seconds at full load",
+      "The unspent transaction output (UTXO) model outperformed account-based in throughput tests",
+      "Performance is not a blocker for US CBDC; the remaining questions are policy, not technical",
+    ],
+  },
+  {
+    id: "bis-mbridge-2022",
+    title: "Project mBridge: Connecting economies through CBDC",
+    authors: ["BIS Innovation Hub", "HKMA", "PBOC", "BOT", "CBUAE"],
+    institution: "BIS",
+    date: "2022-10",
+    url: "https://www.bis.org/publ/othp59.pdf",
+    abstract: "Documents the mBridge experiment — a multi-CBDC platform built for real-value cross-border payments among Hong Kong, China, UAE, and Thailand — including technical architecture, legal considerations, and pilot transaction results.",
+    tags: ["cross-border", "interoperability", "wholesale-CBDC", "DLT", "geopolitics"],
+    relevantCbdcIds: ["chn"],
+    keyFindings: [
+      "20 banks completed 164 transactions worth $22M in real value during the pilot",
+      "Transaction times reduced from 3–5 days to seconds for cross-border wholesale payments",
+      "Custom EVM-compatible blockchain designed to handle multi-jurisdiction legal requirements",
+      "Governance remains the hardest problem: no single jurisdiction can control a multi-CBDC platform",
+    ],
+  },
+  {
+    id: "imf-wp2023-cbdc-adoption",
+    title: "The Empirical Economics of CBDC Adoption",
+    authors: ["Itai Agur", "Anil Ari", "Giovanni Dell'Ariccia"],
+    institution: "IMF",
+    date: "2022-04",
+    url: "https://www.imf.org/en/Publications/WP/Issues/2022/04/06/CBDC-Design-and-Financial-Inclusion-516066",
+    abstract: "Analyzes the conditions under which CBDC achieves financial inclusion goals, finding that design features — particularly offline capability, wallet tier structure, and fee design — matter more than issuance alone.",
+    tags: ["adoption", "financial-inclusion", "retail-CBDC", "case-study"],
+    relevantCbdcIds: ["bhs", "nga", "jam"],
+    keyFindings: [
+      "Wallet creation and actual usage are very different — Sand Dollar and eNaira both show high creation, low usage",
+      "Offline capability is the single most important design feature for rural financial inclusion",
+      "Government use of CBDC for social transfers is the most reliable adoption driver",
+      "Fee-free design necessary but not sufficient — consumers need a compelling benefit over existing options",
+    ],
+  },
+  {
+    id: "bis-wp1061",
+    title: "Central bank digital currencies: financial inclusion or exclusion?",
+    authors: ["Raphael Auer", "Rainer Böhme"],
+    institution: "BIS",
+    date: "2020-12",
+    url: "https://www.bis.org/publ/work1061.pdf",
+    abstract: "Examines the technology choices in CBDC design through the lens of financial inclusion, finding that offline capability and hardware wallet solutions are critical for serving unbanked populations.",
+    tags: ["financial-inclusion", "architecture", "offline", "retail-CBDC"],
+    relevantCbdcIds: ["bhs", "nga", "jam", "gha"],
+    keyFindings: [
+      "Smartphone-dependent CBDCs systematically exclude the lowest-income populations they aim to serve",
+      "Hardware security element approach (G+D Filia, eCurrency Mint) is more inclusive than app-based designs",
+      "The privacy-inclusion tradeoff is real: anonymous offline payments are technically harder",
+      "Infrastructure gaps (internet, electricity) are larger barriers than CBDC design in least-developed markets",
+    ],
+  },
+  {
+    id: "ecb-dp286",
+    title: "Exploring anonymity in central bank digital currencies",
+    authors: ["Rainer Böhme", "Helmut Haselmayer", "Tibor Vrabec"],
+    institution: "ECB",
+    date: "2021-12",
+    url: "https://www.ecb.europa.eu/pub/pdf/scpops/ecb.op286~9a87f71c04.en.pdf",
+    abstract: "A technical and policy analysis of how CBDC can preserve user privacy without enabling money laundering, examining cryptographic techniques including zero-knowledge proofs, blind signatures, and trusted hardware.",
+    tags: ["privacy", "architecture", "regulation"],
+    relevantCbdcIds: ["eu", "chn", "bra"],
+    keyFindings: [
+      "Full anonymity and AML compliance are technically incompatible without trusted intermediaries",
+      "Zero-knowledge proofs can prove transaction validity without revealing amounts or parties — viable for limited use cases",
+      "The 'privacy by design' approach requires architectural decisions at the outset — retrofitting privacy is prohibitively complex",
+      "The ECB's proposed privacy intermediary model (no central bank transaction visibility) is technically achievable but adds system complexity",
+    ],
+  },
+  {
+    id: "fed-nycbp2022",
+    title: "Project Cedar: Wholesale Cross-Border Payments Using CBDC",
+    authors: ["NYIC"],
+    institution: "Federal Reserve",
+    date: "2022-12",
+    url: "https://www.newyorkfed.org/medialibrary/media/nyic/project-cedar-phase-two-ubin-report.pdf",
+    abstract: "Documents the Federal Reserve New York Innovation Center's experiment with wholesale CBDC for cross-border FX settlement, conducted jointly with MAS as Project Cedar × Ubin+.",
+    tags: ["wholesale-CBDC", "cross-border", "DLT", "interoperability"],
+    relevantCbdcIds: ["usa", "sgp"],
+    keyFindings: [
+      "Atomic cross-border FX settlement achieved in under 10 seconds vs 2–3 days conventional",
+      "DLT enables payment-versus-payment settlement without a central counterparty",
+      "Key finding: 'the technical experiments were successful, but the policy questions remain unanswered'",
+      "Interoperability requires standardization of CBDC APIs — no universal standard exists",
+    ],
+  },
+  {
+    id: "bis-retail-cbdc-design",
+    title: "Central bank digital currency: the quest for minimally invasive technology",
+    authors: ["Raphael Auer", "Rainer Böhme"],
+    institution: "BIS",
+    date: "2020-10",
+    url: "https://www.bis.org/publ/work948.pdf",
+    abstract: "Proposes a design framework for retail CBDC that minimizes disruption to the existing monetary system while achieving public policy goals, introducing the concept of 'minimally invasive' CBDC.",
+    tags: ["architecture", "financial-stability", "retail-CBDC", "monetary-policy"],
+    relevantCbdcIds: [],
+    keyFindings: [
+      "CBDC should not replicate private bank functions — it should be a settlement asset, not a credit instrument",
+      "The 'two-tier' model is preferred: central bank issues to banks, banks distribute to consumers",
+      "Non-interest-bearing and holding limits are the minimum set of tools to prevent disintermediation",
+      "Technology choice (DLT vs centralized) should be driven by use case, not ideology",
+    ],
+  },
+  {
+    id: "imf-cross-border-2021",
+    title: "Cross-Border Payments: A Vision for the Future",
+    authors: ["Tobias Adrian", "Tommaso Mancini-Griffoli"],
+    institution: "IMF",
+    date: "2021-11",
+    url: "https://www.imf.org/en/Publications/fintech-notes/Issues/2021/11/01/Cross-Border-Payments-A-Vision-for-the-Future-485837",
+    abstract: "Proposes an international platform (XC platform) for cross-border CBDC payments, arguing that bilateral CBDC links are inefficient and a multilateral approach is needed for the global payment system.",
+    tags: ["cross-border", "interoperability", "wholesale-CBDC", "monetary-policy"],
+    relevantCbdcIds: ["sgp", "chn", "ind"],
+    keyFindings: [
+      "Bilateral CBDC corridors create a fragmented 'hub and spoke' problem — n*(n-1)/2 integrations needed",
+      "A multilateral XC platform could reduce cross-border payment costs by 50%",
+      "Governance of a multi-currency platform is the critical unsolved problem",
+      "Dollar dominance in cross-border payments may increase with CBDC if the US participates, or decrease if it doesn't",
+    ],
+  },
+  {
+    id: "nber-bank-run-2022",
+    title: "Banking Without Deposits: Evidence from Shadow Bank Call Reports",
+    authors: ["Anil Kashyap", "Dimitri Vayanos", "Vania Stavrakeva"],
+    institution: "NBER",
+    date: "2023-03",
+    url: "https://www.nber.org/papers/w30917",
+    abstract: "Analyzes how the introduction of a CBDC could accelerate bank runs during financial stress, finding that the speed and accessibility of CBDC withdrawal amplifies systemic risk compared to physical cash.",
+    tags: ["financial-stability", "risk", "retail-CBDC", "monetary-policy"],
+    relevantCbdcIds: ["eu", "gbr", "usa"],
+    keyFindings: [
+      "CBDC enables bank runs 3–5× faster than physical cash withdrawal due to 24/7 digital access",
+      "Holding limits of €3,000–€10,000 meaningfully reduce systemic risk but do not eliminate it",
+      "Non-interest-bearing CBDC reduces but does not eliminate flight-to-safety motivation",
+      "Central bank emergency CBDC liquidity facilities may be needed as a backstop — a new monetary policy tool",
+    ],
+  },
+  {
+    id: "ecb-programmability-2023",
+    title: "Programmable payments and CBDC: implications for monetary sovereignty",
+    authors: ["Ulrich Bindseil", "Fabio Panetta", "Ignacio Terol"],
+    institution: "ECB",
+    date: "2021-11",
+    url: "https://www.ecb.europa.eu/pub/pdf/scpops/ecb.op267~f814ad84e2.en.pdf",
+    abstract: "Examines the risks and benefits of programmable money, arguing that programmability in the base currency layer raises serious concerns about monetary sovereignty and financial freedom, while programmability at the application layer is preferable.",
+    tags: ["programmability", "monetary-policy", "architecture", "regulation"],
+    relevantCbdcIds: ["eu", "chn", "bra", "ind"],
+    keyFindings: [
+      "Programmability in the base CBDC layer risks creating 'conditional money' that could violate legal tender status",
+      "Application-layer programmability (like Singapore's PBM) avoids these risks by separating rules from the currency itself",
+      "Smart contracts for CBDC raise questions about who controls the code and what happens when it fails",
+      "The ECB's decision to exclude programmability from the digital euro base layer reflects these sovereignty concerns",
+    ],
+  },
+  {
+    id: "bis-enaira-case-study",
+    title: "eNaira: Design, adoption, and lessons for central bank digital currencies",
+    authors: ["Raphael Auer", "Bernhard Haslhofer", "Stefan Kitzler", "Pietro Saggese"],
+    institution: "BIS",
+    date: "2023-06",
+    url: "https://www.bis.org/publ/work1074.pdf",
+    abstract: "An empirical analysis of Nigeria's eNaira using on-chain transaction data, finding extremely low adoption despite large wallet counts and identifying structural reasons including infrastructure gaps and lack of compelling use cases.",
+    tags: ["case-study", "adoption", "financial-inclusion", "retail-CBDC"],
+    relevantCbdcIds: ["nga"],
+    keyFindings: [
+      "98.5% of eNaira wallets have never been used for a transaction",
+      "eNaira transaction volumes are 0.003% of Nigeria's mobile money volumes",
+      "Lack of internet connectivity in rural areas is the primary adoption barrier, not awareness",
+      "The eNaira's failure to provide a compelling use case over existing mobile money is the design-level root cause",
+    ],
+  },
+  {
+    id: "imf-wp-drex",
+    title: "Wholesale CBDC and programmable finance: lessons from Brazil's Drex",
+    authors: ["IMF Fintech Team"],
+    institution: "IMF",
+    date: "2024-03",
+    url: "https://www.imf.org/en/Publications/WP",
+    abstract: "Analysis of Brazil's Drex as a model for programmable wholesale CBDC, examining the EVM-compatible approach, the privacy challenge of a shared institutional ledger, and the potential for DeFi-style products in a regulated environment.",
+    tags: ["wholesale-CBDC", "programmability", "DLT", "case-study", "privacy"],
+    relevantCbdcIds: ["bra"],
+    keyFindings: [
+      "EVM compatibility enables smart contract ecosystem reuse but imports Ethereum's smart contract security risks",
+      "Zero-knowledge proof privacy for multi-institution shared ledgers is technically feasible but operationally unproven at scale",
+      "Programmable CBDC for agricultural supply chain finance is the most compelling identified use case",
+      "Drex represents the most ambitious attempt to merge DeFi capabilities with central bank settlement",
+    ],
+  },
+  {
+    id: "bis-dunbar",
+    title: "Project Dunbar: International settlements using multi-CBDCs",
+    authors: ["BIS Innovation Hub", "SARB", "MAS", "RBA", "BNM"],
+    institution: "BIS",
+    date: "2022-03",
+    url: "https://www.bis.org/publ/othp45.pdf",
+    abstract: "Documents the BIS-led experiment connecting four central banks (South Africa, Singapore, Australia, Malaysia) on a shared CBDC platform for cross-border wholesale settlement, testing different technical architectures.",
+    tags: ["cross-border", "wholesale-CBDC", "interoperability", "DLT"],
+    relevantCbdcIds: ["sgp", "zaf", "aus"],
+    keyFindings: [
+      "Two working prototypes achieved cross-border settlement between four central bank CBDCs",
+      "Corda and Ethereum-based architectures both proved technically viable",
+      "Legal and regulatory harmonization across jurisdictions is harder than the technical integration",
+      "Access control — deciding which foreign institutions can hold domestic CBDC — is the key governance question",
+    ],
+  },
+  {
+    id: "world-bank-cbdc-inclusion",
+    title: "Central Bank Digital Currencies for Financial Inclusion: Risks and Rewards",
+    authors: ["World Bank Digital Development Team"],
+    institution: "World Bank",
+    date: "2021-07",
+    url: "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/744701630502274659",
+    abstract: "Reviews the evidence from early CBDC deployments in developing countries on whether CBDC delivers on financial inclusion promises, finding mixed results and identifying design features that predict success.",
+    tags: ["financial-inclusion", "case-study", "retail-CBDC", "adoption"],
+    relevantCbdcIds: ["bhs", "nga", "jam", "ecs", "gha"],
+    keyFindings: [
+      "CBDCs launched primarily for financial inclusion have underperformed mobile money in developing markets",
+      "Government-to-person payments (G2P) are the most reliable driver of CBDC adoption in low-income settings",
+      "Interoperability with existing mobile money systems is critical — standalone CBDC wallets fail to scale",
+      "The Sand Dollar and eNaira experience suggests inclusion requires offline capability and agent networks, not just digital wallets",
+    ],
+  },
+  {
+    id: "bis-wp1012",
+    title: "The technology of retail central bank digital currency",
+    authors: ["Raphael Auer", "Rainer Böhme"],
+    institution: "BIS",
+    date: "2020-03",
+    url: "https://www.bis.org/publ/qtrpdf/r_qt2003j.htm",
+    abstract: "A taxonomy of CBDC technology choices and their policy implications, covering the tradeoffs between account-based and token-based models, the role of DLT, and the conditions under which each technology is appropriate.",
+    tags: ["architecture", "DLT", "retail-CBDC", "comparative"],
+    relevantCbdcIds: [],
+    keyFindings: [
+      "Token-based CBDC enables offline payments and near-anonymity; account-based enables richer AML/CFT controls",
+      "DLT provides resilience and decentralization at the cost of performance and complexity",
+      "No single technology is optimal for all use cases — design choice must follow policy objective",
+      "The BIS 'singleness of money' principle requires CBDC and bank deposits to be interchangeable at par",
+    ],
+  },
+  {
+    id: "ecb-digital-euro-report-2020",
+    title: "Report on a Digital Euro",
+    authors: ["ECB Digital Euro Project Team"],
+    institution: "ECB",
+    date: "2020-10",
+    url: "https://www.ecb.europa.eu/pub/pdf/other/Report_on_a_digital_euro~4d7268b458.en.pdf",
+    abstract: "The ECB's foundational document for the digital euro project, establishing the policy case, design principles, and key open questions that would drive the subsequent investigation phase.",
+    tags: ["architecture", "retail-CBDC", "monetary-policy", "regulation", "financial-stability"],
+    relevantCbdcIds: ["eu"],
+    keyFindings: [
+      "A digital euro is needed as a contingency if private digital currencies or foreign CBDCs displace cash",
+      "The digital euro should complement, not replace, physical cash",
+      "Anonymity comparable to cash is desirable but may conflict with AML requirements",
+      "The ECB must avoid becoming a retail bank — intermediaries are essential to the design",
+    ],
+  },
+  {
+    id: "omfif-cbdc-2023",
+    title: "Digital Monetary Institute: CBDC and the Future of the Monetary System",
+    authors: ["OMFIF Digital Monetary Institute"],
+    institution: "OMFIF",
+    date: "2023-06",
+    url: "https://www.omfif.org/dmireport2023/",
+    abstract: "Annual survey of central bank attitudes to CBDC covering 34 central banks, finding a global bifurcation: emerging markets moving toward retail CBDC while advanced economies pause or pivot to wholesale.",
+    tags: ["comparative", "retail-CBDC", "wholesale-CBDC", "adoption", "geopolitics"],
+    relevantCbdcIds: [],
+    keyFindings: [
+      "34% of central banks plan to issue retail CBDC within 6 years — almost all in emerging markets",
+      "Advanced economy central banks are pivoting to wholesale CBDC or pausing entirely",
+      "The US executive order has created significant uncertainty in global CBDC governance discussions",
+      "Interoperability standards are cited as the top technical challenge across all respondents",
+    ],
+  },
+  {
+    id: "academic-privacy-tradeoff",
+    title: "Privacy versus compliance: design tradeoffs in CBDC architecture",
+    authors: ["Sarah Allen", "Stu MS Batiz-Benet", "Mary Lacity"],
+    institution: "Academic",
+    date: "2023-09",
+    url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4291517",
+    abstract: "A systematic analysis of how different CBDC designs balance privacy against AML/CFT compliance requirements, comparing cryptographic approaches and identifying which countries have made what tradeoffs.",
+    tags: ["privacy", "architecture", "regulation", "comparative"],
+    relevantCbdcIds: ["chn", "eu", "gbr", "ind"],
+    keyFindings: [
+      "No deployed CBDC achieves privacy levels comparable to physical cash — all require some identifying information",
+      "China's e-CNY is the clearest example of full-surveillance CBDC — privacy is not a design goal",
+      "The ECB's privacy intermediary model offers the best privacy architecture among major planned CBDCs",
+      "Zero-knowledge proofs offer a technical path to compliance-without-surveillance but are not yet deployed at scale",
+    ],
+  },
+  {
+    id: "imf-geopolitics-2023",
+    title: "Geoeconomics of CBDC: Payment Systems in a Fragmented World",
+    authors: ["Tobias Adrian", "Dong He"],
+    institution: "IMF",
+    date: "2023-10",
+    url: "https://www.imf.org/en/Publications/fintech-notes/Issues/2023/10/10",
+    abstract: "Examines how CBDC development is being shaped by geopolitical competition, particularly the US-China rivalry and sanctions pressure, and what this means for the future of the international monetary system.",
+    tags: ["geopolitics", "cross-border", "interoperability", "monetary-policy"],
+    relevantCbdcIds: ["chn", "rus", "usa"],
+    keyFindings: [
+      "CBDC fragmentation along geopolitical lines could create a bifurcated global payment system",
+      "mBridge's potential as a sanctions-circumvention tool is the primary reason the US has not joined",
+      "A country's CBDC interoperability choices are effectively foreign policy decisions",
+      "The IMF argues for multilateral governance of cross-border CBDC to prevent further fragmentation",
+    ],
+  },
+  {
+    id: "bis-wp-pbm",
+    title: "Purpose Bound Money: an architecture for programmable money",
+    authors: ["MAS", "BIS"],
+    institution: "BIS",
+    date: "2023-06",
+    url: "https://www.mas.gov.sg/publications/monographs-or-information-paper/2023/purpose-bound-money",
+    abstract: "Introduces Singapore's Purpose Bound Money (PBM) concept — a programmable wrapper over CBDC or tokenized deposits that applies spending conditions at the application layer without altering the base currency.",
+    tags: ["programmability", "architecture", "wholesale-CBDC", "tokenization"],
+    relevantCbdcIds: ["sgp"],
+    keyFindings: [
+      "PBM separates programmability from money — spending rules are in the wrapper, not the currency",
+      "This approach preserves legal tender status and avoids the 'conditional money' sovereignty concerns",
+      "PBM is compatible with both CBDC and tokenized bank deposits — the underlying asset can vary",
+      "Live deployment: government vouchers and international trade finance tested with major Singapore banks",
+    ],
+  },
+  {
+    id: "fed-cbdc-financial-stability",
+    title: "Central Bank Digital Currency: Stability and information",
+    authors: ["Gary Gorton", "Jeffery Zhang"],
+    institution: "Federal Reserve",
+    date: "2021-05",
+    url: "https://www.federalreserve.gov/econres/feds/files/2021024pap.pdf",
+    abstract: "Argues that CBDC is the natural digital successor to physical currency and that a well-designed CBDC is actually stability-enhancing rather than destabilizing, because it provides a risk-free digital alternative that reduces demand for risky private digital money.",
+    tags: ["financial-stability", "monetary-policy", "retail-CBDC", "risk"],
+    relevantCbdcIds: ["usa"],
+    keyFindings: [
+      "Stablecoins and private digital money are the real systemic risk — CBDC is the solution, not the problem",
+      "Historical bank panics are driven by opacity of private money — CBDC is transparent and risk-free",
+      "CBDC holding limits are unnecessary if CBDC is non-interest-bearing — there is limited run incentive",
+      "The US should issue CBDC to maintain monetary sovereignty against private stablecoin issuers",
+    ],
+  },
+  {
+    id: "academic-ecash-2022",
+    title: "Digital cash: privacy, design, and precedents",
+    authors: ["Neha Narula"],
+    institution: "Academic",
+    date: "2022-03",
+    url: "https://dci.mit.edu/research/cbdc",
+    abstract: "Drawing on the history of digital cash research (Chaum, 1982 onwards), analyzes what technical and political choices have led to surveillance-oriented CBDC designs and what a genuinely private digital currency would require.",
+    tags: ["privacy", "architecture", "retail-CBDC", "regulation"],
+    relevantCbdcIds: ["usa", "eu"],
+    keyFindings: [
+      "Cryptographic tools for anonymous digital cash have existed since 1982 — the design choices are political, not technical",
+      "No central bank has committed to deploying privacy-preserving cryptography comparable to physical cash",
+      "The framing of privacy versus AML is a false binary — tiered privacy by amount is technically achievable",
+      "MIT DCI Project Hamilton demonstrated that privacy-preserving CBDC at scale is technically feasible",
+    ],
+  },
+  {
+    id: "bis-wp-e-krona-lessons",
+    title: "The e-krona pilot project: key lessons from Sweden's CBDC experiment",
+    authors: ["Riksbank", "Accenture"],
+    institution: "BIS",
+    date: "2023-04",
+    url: "https://www.riksbank.se/en-gb/payments--cash/e-krona/e-krona-reports/",
+    abstract: "A retrospective on Sweden's e-krona pilot, identifying what was learned about CBDC technology, adoption barriers, and the policy case for a central bank digital currency in an advanced economy with already-strong digital payments.",
+    tags: ["case-study", "retail-CBDC", "adoption", "architecture"],
+    relevantCbdcIds: ["swe"],
+    keyFindings: [
+      "The e-krona technical pilot succeeded — the technology worked and offline hardware wallets functioned",
+      "The policy case failed — Sweden already has Swish, BankID, and Faster Payments, leaving no clear CBDC benefit",
+      "The 'declining cash' motivation assumed a faster cash decline than occurred",
+      "The e-krona is the clearest evidence that advanced economies may not need retail CBDC",
+    ],
+  },
+  {
+    id: "bis-tokenization-2023",
+    title: "Blueprint for the future monetary system: improving the old, enabling the new",
+    authors: ["BIS"],
+    institution: "BIS",
+    date: "2023-06",
+    url: "https://www.bis.org/publ/arpdf/ar2023e3.pdf",
+    abstract: "The BIS Annual Economic Report 2023 blueprint for a 'unified ledger' — a future monetary system combining CBDC, tokenized deposits, and tokenized assets on a shared programmable platform.",
+    tags: ["tokenization", "architecture", "wholesale-CBDC", "programmability", "interoperability"],
+    relevantCbdcIds: ["sgp", "bra"],
+    keyFindings: [
+      "The 'unified ledger' concept would enable atomic settlement of any financial asset against CBDC in real time",
+      "This requires CBDC, tokenized commercial bank money, and tokenized assets to coexist on the same platform",
+      "Privacy in a unified ledger can be achieved through partitioned data with regulated access",
+      "This vision is 10–15 years from realization but is shaping current wholesale CBDC design choices",
+    ],
+  },
+];
