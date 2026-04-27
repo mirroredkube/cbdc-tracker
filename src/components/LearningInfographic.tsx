@@ -13,11 +13,11 @@ export function LearningInfographic() {
     <div className="glass-panel p-6 rounded-2xl mb-10 space-y-8">
       {/* Stage progression */}
       <div>
-        <h2 className="text-lg font-bold text-white mb-1 flex items-center gap-2">
+        <h2 className="text-lg font-bold dark:text-white text-slate-900 mb-1 flex items-center gap-2">
           <Zap className="w-5 h-5 text-yellow-400" />
           CBDC Development Stages
         </h2>
-        <p className="text-slate-400 text-xs mb-4">
+        <p className="dark:text-slate-400 text-slate-500 text-xs mb-4">
           How a Central Bank Digital Currency progresses from idea to national launch.
         </p>
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 overflow-x-auto pb-2">
@@ -38,18 +38,18 @@ export function LearningInfographic() {
                   />
                   {stage.label}
                 </div>
-                <p className="text-[10px] text-slate-500 max-w-[120px] leading-tight hidden sm:block">
+                <p className="text-[10px] dark:text-slate-500 text-slate-400 max-w-[120px] leading-tight hidden sm:block">
                   {stage.desc}
                 </p>
               </div>
               {i < STAGES.length - 1 && (
-                <ArrowRight className="w-4 h-4 text-slate-600 flex-shrink-0 mx-1" />
+                <ArrowRight className="w-4 h-4 dark:text-slate-600 text-slate-400 flex-shrink-0 mx-1" />
               )}
             </div>
           ))}
           {/* Cancelled branch */}
           <div className="flex items-center gap-2 ml-0 sm:ml-4 flex-shrink-0">
-            <span className="text-slate-600 text-xs hidden sm:block">or</span>
+            <span className="dark:text-slate-600 text-slate-400 text-xs hidden sm:block">or</span>
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border"
               style={{
                 color: STAGE_COLORS["Cancelled"],
@@ -66,16 +66,16 @@ export function LearningInfographic() {
 
       {/* Retail vs Wholesale */}
       <div>
-        <h2 className="text-lg font-bold text-white mb-3">Retail vs Wholesale</h2>
+        <h2 className="text-lg font-bold dark:text-white text-slate-900 mb-3">Retail vs Wholesale</h2>
         <div className="grid md:grid-cols-2 gap-4">
-          <div className="bg-slate-800/50 rounded-xl p-4 border border-purple-500/20 hover:border-purple-500/40 transition-colors">
+          <div className="dark:bg-slate-800/50 bg-purple-50 rounded-xl p-4 border border-purple-500/20 hover:border-purple-500/40 transition-colors">
             <div className="flex items-center gap-3 mb-3">
               <div className="p-2 bg-purple-500/20 rounded-lg text-purple-400">
                 <Users className="w-4 h-4" />
               </div>
-              <h3 className="font-bold text-purple-100">Retail CBDC (rCBDC)</h3>
+              <h3 className="font-bold dark:text-purple-100 text-purple-800">Retail CBDC (rCBDC)</h3>
             </div>
-            <ul className="space-y-2 text-sm text-slate-300">
+            <ul className="space-y-2 text-sm dark:text-slate-300 text-slate-600">
               <li className="flex items-start gap-2">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 mt-0.5 flex-shrink-0" />
                 Available to the general public and businesses for daily transactions.
@@ -91,14 +91,14 @@ export function LearningInfographic() {
             </ul>
           </div>
 
-          <div className="bg-slate-800/50 rounded-xl p-4 border border-orange-500/20 hover:border-orange-500/40 transition-colors">
+          <div className="dark:bg-slate-800/50 bg-orange-50 rounded-xl p-4 border border-orange-500/20 hover:border-orange-500/40 transition-colors">
             <div className="flex items-center gap-3 mb-3">
               <div className="p-2 bg-orange-500/20 rounded-lg text-orange-400">
                 <Building2 className="w-4 h-4" />
               </div>
-              <h3 className="font-bold text-orange-100">Wholesale CBDC (wCBDC)</h3>
+              <h3 className="font-bold dark:text-orange-100 text-orange-800">Wholesale CBDC (wCBDC)</h3>
             </div>
-            <ul className="space-y-2 text-sm text-slate-300">
+            <ul className="space-y-2 text-sm dark:text-slate-300 text-slate-600">
               <li className="flex items-start gap-2">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 mt-0.5 flex-shrink-0" />
                 Restricted to commercial banks and clearing houses.

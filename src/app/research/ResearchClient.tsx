@@ -78,7 +78,7 @@ const INSTITUTION_STYLE: Record<string, string> = {
 function StatCard({ value, label }: { value: number | string; label: string }) {
   return (
     <div className="glass-panel rounded-xl px-5 py-3 text-center">
-      <p className="text-2xl font-bold text-white">{value}</p>
+      <p className="text-2xl font-bold dark:text-white text-slate-900">{value}</p>
       <p className="text-xs text-slate-500 mt-0.5">{label}</p>
     </div>
   );
@@ -202,7 +202,7 @@ function PaperCard({
             rel="noopener noreferrer"
             className="group flex items-start gap-1.5"
           >
-            <h3 className="text-base font-bold text-white group-hover:text-blue-300 transition-colors leading-snug">
+            <h3 className="text-base font-bold dark:text-white text-slate-900 dark:group-hover:text-blue-300 group-hover:text-blue-600 transition-colors leading-snug">
               {paper.title}
             </h3>
             <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-blue-400 flex-shrink-0 mt-1 transition-colors" />
@@ -329,7 +329,7 @@ export function ResearchClient() {
     <div className="max-w-5xl mx-auto px-4 md:px-8 py-8">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-2">Research Library</h1>
+        <h1 className="text-3xl font-bold dark:text-white text-slate-900 mb-2">Research Library</h1>
         <p className="text-slate-400 text-sm">
           Curated academic papers, central bank working papers, and policy research on CBDC design, risk, and adoption.
         </p>
@@ -460,7 +460,7 @@ export function ResearchClient() {
                       : <ChevronDown className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
                     }
                     <span className={clsx("w-2 h-2 rounded-full flex-shrink-0", meta.dot)} />
-                    <span className="font-semibold text-white text-sm">{meta.label}</span>
+                    <span className="font-semibold dark:text-white text-slate-900 text-sm">{meta.label}</span>
                     <span className="text-slate-500 text-xs ml-auto">{papers.length} paper{papers.length !== 1 ? "s" : ""}</span>
                   </div>
                   {!collapsed && (

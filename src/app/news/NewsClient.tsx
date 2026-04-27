@@ -20,14 +20,14 @@ function NewsCard({ item }: { item: NewsItem }) {
   );
 
   return (
-    <div className="glass-panel rounded-2xl p-5 flex flex-col gap-3 hover:border-slate-600/50 hover:bg-slate-800/80 transition-all">
+    <div className="glass-panel rounded-2xl p-5 flex flex-col gap-3 dark:hover:border-slate-600/50 hover:border-slate-300 dark:hover:bg-slate-800/80 hover:bg-white/95 transition-all">
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1 min-w-0">
           <a
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-base font-semibold text-white hover:text-blue-300 transition-colors leading-snug line-clamp-2 flex items-start gap-1.5 group"
+            className="text-base font-semibold dark:text-white text-slate-900 dark:hover:text-blue-300 hover:text-blue-600 transition-colors leading-snug line-clamp-2 flex items-start gap-1.5 group"
           >
             {item.title}
             <ExternalLink className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-slate-500 group-hover:text-blue-400 transition-colors" />
@@ -35,12 +35,12 @@ function NewsCard({ item }: { item: NewsItem }) {
         </div>
       </div>
 
-      <p className="text-sm text-slate-400 leading-relaxed line-clamp-2">{item.summary}</p>
+      <p className="text-sm dark:text-slate-400 text-slate-600 leading-relaxed line-clamp-2">{item.summary}</p>
 
       <div className="flex flex-wrap items-center gap-2 mt-auto pt-1">
-        <span className="text-xs text-slate-500">{date}</span>
-        <span className="w-1 h-1 rounded-full bg-slate-600" />
-        <span className="text-xs font-medium text-slate-400 bg-slate-700/50 px-2 py-0.5 rounded-full">
+        <span className="text-xs dark:text-slate-500 text-slate-400">{date}</span>
+        <span className="w-1 h-1 rounded-full dark:bg-slate-600 bg-slate-300" />
+        <span className="text-xs font-medium dark:text-slate-400 text-slate-600 dark:bg-slate-700/50 bg-slate-100 px-2 py-0.5 rounded-full">
           {item.source}
         </span>
         {relatedCurrencies.map((p) => (
@@ -106,7 +106,7 @@ export function NewsClient() {
     <div className="max-w-7xl mx-auto px-4 md:px-8 py-8">
       {/* Page header */}
       <div className="mb-6">
-        <h1 className="text-3xl font-bold text-white mb-1">News</h1>
+        <h1 className="text-3xl font-bold dark:text-white text-slate-900 mb-1">News</h1>
         <p className="text-slate-400 text-sm">Latest updates on Central Bank Digital Currencies worldwide · sorted by date</p>
       </div>
 

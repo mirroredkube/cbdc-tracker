@@ -183,7 +183,7 @@ function CBDCHeader({ project, onRemove }: { project: CBDCProject; onRemove: () 
       <div className="text-center">
         <Link
           href={`/currency/${project.tag}`}
-          className="text-sm font-bold text-white hover:text-blue-300 transition-colors block leading-tight"
+          className="text-sm font-bold dark:text-white text-slate-900 dark:hover:text-blue-300 hover:text-blue-600 transition-colors block leading-tight"
         >
           {project.currencyName}
         </Link>
@@ -316,7 +316,7 @@ export function CompareClient({
             <ArrowLeft className="w-4 h-4" /> Dashboard
           </Link>
           <span className="text-slate-700">/</span>
-          <h1 className="text-xl font-bold text-white">Compare CBDCs</h1>
+          <h1 className="text-xl font-bold dark:text-white text-slate-900">Compare CBDCs</h1>
         </div>
         {colCount > 0 && (
           <button
@@ -358,7 +358,7 @@ export function CompareClient({
                   <th key={p.tag} className="px-4 py-3 text-center min-w-[160px]">
                     <div className="flex flex-col items-center gap-1">
                       {p.flagUrl && <FlagImage src={p.flagUrl} alt="" size={24} className="border border-slate-600" />}
-                      <Link href={`/currency/${p.tag}`} className="text-sm font-bold text-white hover:text-blue-300 transition-colors leading-tight">
+                      <Link href={`/currency/${p.tag}`} className="text-sm font-bold dark:text-white text-slate-900 dark:hover:text-blue-300 hover:text-blue-600 transition-colors leading-tight">
                         {p.currencyName}
                       </Link>
                     </div>

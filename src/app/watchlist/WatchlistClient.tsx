@@ -16,11 +16,11 @@ const CBDCMap = dynamic(() => import("@/components/CBDCMap"), { ssr: false });
 function EmptyState() {
   return (
     <div className="py-20 flex flex-col items-center text-center gap-4">
-      <div className="w-16 h-16 rounded-full bg-slate-800/60 border border-slate-700/50 flex items-center justify-center">
-        <Bookmark className="w-7 h-7 text-slate-600" />
+      <div className="w-16 h-16 rounded-full dark:bg-slate-800/60 bg-slate-100 border dark:border-slate-700/50 border-slate-200 flex items-center justify-center">
+        <Bookmark className="w-7 h-7 dark:text-slate-600 text-slate-400" />
       </div>
       <div>
-        <p className="text-lg font-semibold text-slate-300">Your watchlist is empty</p>
+        <p className="text-lg font-semibold dark:text-slate-300 text-slate-700">Your watchlist is empty</p>
         <p className="text-sm text-slate-500 mt-1">
           Click the bookmark icon on any CBDC card to add it here.
         </p>
@@ -37,7 +37,7 @@ function EmptyState() {
 
 function WatchlistRow({ project }: { project: CBDCProject }) {
   return (
-    <div className="flex items-center gap-4 p-4 glass-panel rounded-xl hover:border-slate-600/50 hover:bg-slate-800/80 transition-all">
+    <div className="flex items-center gap-4 p-4 glass-panel rounded-xl dark:hover:border-slate-600/50 hover:border-slate-300 dark:hover:bg-slate-800/80 hover:bg-white/95 transition-all">
       <div className="flex items-center gap-3 flex-1 min-w-0">
         {project.flagUrl && (
           <FlagImage
@@ -50,7 +50,7 @@ function WatchlistRow({ project }: { project: CBDCProject }) {
         <div className="min-w-0">
           <Link
             href={`/currency/${project.tag}`}
-            className="text-sm font-semibold text-white hover:text-blue-300 transition-colors truncate block"
+            className="text-sm font-semibold dark:text-white text-slate-900 dark:hover:text-blue-300 hover:text-blue-600 transition-colors truncate block"
           >
             {project.currencyName}
           </Link>
@@ -89,7 +89,7 @@ function SubscriptionForm() {
 
   return (
     <div className="glass-panel rounded-2xl p-6 mt-8">
-      <h2 className="text-lg font-bold text-white mb-1 flex items-center gap-2">
+      <h2 className="text-lg font-bold dark:text-white text-slate-900 mb-1 flex items-center gap-2">
         <Mail className="w-5 h-5 text-blue-400" />
         Subscription settings
       </h2>
@@ -134,7 +134,7 @@ export function WatchlistClient() {
     <div className="max-w-4xl mx-auto px-4 md:px-8 py-8">
       <div className="mb-6 flex items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-1">Watchlist</h1>
+          <h1 className="text-3xl font-bold dark:text-white text-slate-900 mb-1">Watchlist</h1>
           <p className="text-slate-400 text-sm">
             {watched.length} {watched.length === 1 ? "currency" : "currencies"} saved
           </p>
