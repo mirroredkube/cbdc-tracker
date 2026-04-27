@@ -9,6 +9,7 @@ import { CurrenciesTable } from "@/components/CurrenciesTable";
 import { DeepDiveDrawer } from "@/components/DeepDiveDrawer";
 import { LearningInfographic } from "@/components/LearningInfographic";
 import { FilterPanel } from "@/components/FilterPanel";
+import { CoverageScope } from "@/components/CoverageScope";
 import { useFilters } from "@/hooks/useFilters";
 
 const CBDCMap = dynamic(() => import("@/components/CBDCMap"), { ssr: false });
@@ -31,6 +32,8 @@ export default function Dashboard() {
     <div className="min-h-screen bg-[#0f172a] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))] text-slate-50 selection:bg-purple-500/30 font-sans">
       <main className="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-10">
         <LearningInfographic />
+
+        <CoverageScope />
 
         <div className="mb-4 pl-1">
           <h2 className="text-2xl font-bold mb-1 text-white">Global Projects</h2>
