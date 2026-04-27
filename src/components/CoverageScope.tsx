@@ -98,10 +98,24 @@ export function CoverageScope() {
         </span>
       </div>
 
-      <p className="mt-2.5 text-slate-500 text-xs leading-relaxed">
-        This tracker focuses on the {total} most-documented projects with verified architecture data.
-        Figures in grey reference the Kiffmeister global CBDC tracker (Mar 2026), which tallies all jurisdictions with any recorded retail CBDC exploration.
-      </p>
+      {/* Why the gap */}
+      <div className="mt-3 rounded-lg border border-slate-700/40 bg-slate-900/40 p-3 space-y-1.5">
+        <p className="text-slate-300 text-xs font-medium">Why is our coverage lower?</p>
+        <ul className="text-slate-500 text-xs space-y-1 list-none">
+          <li className="flex gap-2">
+            <span className="text-slate-600 flex-shrink-0">—</span>
+            <span><span className="text-slate-400">Depth over breadth.</span> Every entry here requires verified architecture data, tech stack, risk profile, and sourced documents. Projects without enough public detail are excluded.</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-slate-600 flex-shrink-0">—</span>
+            <span><span className="text-slate-400">The ~{ext} figure counts any exploration.</span> Kiffmeister tallies every jurisdiction that ever published a discussion paper, including cancelled programs (e.g. Ecuador's dinero electrónico, shut down 2018) and "we are studying this" announcements with no follow-up.</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-slate-600 flex-shrink-0">—</span>
+            <span><span className="text-slate-400">~80 jurisdictions have no researchable detail yet.</span> Adding them would mean mostly empty rows — they have not published technical whitepapers, architecture specs, or pilot results.</span>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
