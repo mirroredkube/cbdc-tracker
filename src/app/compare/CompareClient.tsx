@@ -330,7 +330,7 @@ export function CompareClient({
       </div>
 
       {/* CBDC selector row */}
-      <div className="glass-panel rounded-2xl p-4 mb-6">
+      <div className="glass-panel rounded-2xl p-4 mb-6 relative z-20">
         <div className="flex gap-3 flex-wrap items-start">
           {projects.map((p) => (
             <CBDCHeader key={p.tag} project={p} onRemove={() => handleRemove(p.tag)} />
