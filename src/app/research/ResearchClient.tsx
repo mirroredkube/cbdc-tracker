@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { ExternalLink, Search, X, BookOpen, Filter, ChevronDown } from "lucide-react";
-import { researchPapers, ResearchPaper, ResearchTag, Institution } from "@/data/researchData";
+import { researchPapers, ResearchPaper, ResearchTag, Institution, Era } from "@/data/researchData";
 import { cbdcProjects } from "@/data/cbdcData";
 import { FlagImage } from "@/components/FlagImage";
 import clsx from "clsx";
@@ -34,7 +34,31 @@ const TAG_LABELS: Record<ResearchTag, string> = {
   geopolitics: "Geopolitics",
   offline: "Offline",
   tokenization: "Tokenization",
+  governance: "Governance",
 };
+
+const ERA_META: Record<Era, { label: string; sublabel: string; accent: string; dot: string }> = {
+  foundational: {
+    label: "Foundational",
+    sublabel: "Core frameworks and taxonomies — these define the vocabulary of the field and never go out of date. Start here.",
+    accent: "border-amber-500/30 bg-amber-500/5",
+    dot: "bg-amber-400",
+  },
+  current: {
+    label: "Current Research",
+    sublabel: "Active program analyses, recent empirical findings, and live policy debates.",
+    accent: "border-blue-500/20 bg-blue-500/5",
+    dot: "bg-blue-400",
+  },
+  archive: {
+    label: "Historical Record",
+    sublabel: "Early surveys written before major pilots launched. Figures and predictions have since been updated — read for context on how the field evolved.",
+    accent: "border-slate-600/30 bg-slate-800/20",
+    dot: "bg-slate-500",
+  },
+};
+
+const ERA_ORDER: Era[] = ["foundational", "current", "archive"];
 
 const INSTITUTION_STYLE: Record<string, string> = {
   BIS: "bg-blue-500/15 border-blue-500/30 text-blue-400",
@@ -400,16 +424,38 @@ export function ResearchClient() {
           <p className="text-slate-400 font-medium mb-2">No papers match your filters</p>
           <button onClick={clearAll} className="text-sm text-blue-400 hover:text-blue-300 transition-colors">Clear all filters</button>
         </div>
-      ) : (
+      ) : hasFilters ? (
+        // Flat list when filtering
         <div className="space-y-4">
           {filtered.map((paper) => (
-            <PaperCard
-              key={paper.id}
-              paper={paper}
-              activeTags={selectedTags}
-              onTagClick={(tag) => setSelectedTags(toggleSet(selectedTags, tag))}
-            />
+            <PaperCard key={paper.id} paper={paper} activeTags={selectedTags} onTagClick={(tag) => setSelectedTags(toggleSet(selectedTags, tag))} />
           ))}
+        </div>
+      ) : (
+        // Grouped by era when browsing
+        <div className="space-y-10">
+          {ERA_ORDER.map((era) => {
+            const papers = filtered.filter((p) => p.era === era);
+            if (papers.length === 0) return null;
+            const meta = ERA_META[era];
+            return (
+              <div key={era}>
+                <div className={clsx("rounded-xl border px-4 py-3 mb-4", meta.accent)}>
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <span className={clsx("w-2 h-2 rounded-full flex-shrink-0", meta.dot)} />
+                    <span className="font-semibold text-white text-sm">{meta.label}</span>
+                    <span className="text-slate-500 text-xs ml-auto">{papers.length} paper{papers.length !== 1 ? "s" : ""}</span>
+                  </div>
+                  <p className="text-xs text-slate-400 ml-4">{meta.sublabel}</p>
+                </div>
+                <div className="space-y-4">
+                  {papers.map((paper) => (
+                    <PaperCard key={paper.id} paper={paper} activeTags={selectedTags} onTagClick={(tag) => setSelectedTags(toggleSet(selectedTags, tag))} />
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
       )}
     </div>
