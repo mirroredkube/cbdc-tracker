@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { ExternalLink, Search, X, BookOpen, Filter, ChevronDown } from "lucide-react";
+import { ExternalLink, Search, X, BookOpen, Filter, ChevronDown, ChevronRight } from "lucide-react";
 import { researchPapers, ResearchPaper, ResearchTag, Institution, Era } from "@/data/researchData";
 import { cbdcProjects } from "@/data/cbdcData";
 import { FlagImage } from "@/components/FlagImage";
@@ -280,6 +280,15 @@ export function ResearchClient() {
   const [selectedInstitutions, setSelectedInstitutions] = useState<Set<Institution>>(new Set());
   const [selectedTags, setSelectedTags] = useState<Set<ResearchTag>>(new Set());
   const [selectedCbdc, setSelectedCbdc] = useState<Set<string>>(new Set());
+  const [collapsedEras, setCollapsedEras] = useState<Set<Era>>(new Set());
+
+  function toggleEra(era: Era) {
+    setCollapsedEras((prev) => {
+      const next = new Set(prev);
+      next.has(era) ? next.delete(era) : next.add(era);
+      return next;
+    });
+  }
 
   function toggleSet<T>(set: Set<T>, value: T): Set<T> {
     const next = new Set(set);
@@ -438,21 +447,33 @@ export function ResearchClient() {
             const papers = filtered.filter((p) => p.era === era);
             if (papers.length === 0) return null;
             const meta = ERA_META[era];
+            const collapsed = collapsedEras.has(era);
             return (
               <div key={era}>
-                <div className={clsx("rounded-xl border px-4 py-3 mb-4", meta.accent)}>
-                  <div className="flex items-center gap-2 mb-0.5">
+                <button
+                  onClick={() => toggleEra(era)}
+                  className={clsx("w-full rounded-xl border px-4 py-3 mb-4 text-left transition-colors hover:brightness-110", meta.accent)}
+                >
+                  <div className="flex items-center gap-2">
+                    {collapsed
+                      ? <ChevronRight className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+                      : <ChevronDown className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+                    }
                     <span className={clsx("w-2 h-2 rounded-full flex-shrink-0", meta.dot)} />
                     <span className="font-semibold text-white text-sm">{meta.label}</span>
                     <span className="text-slate-500 text-xs ml-auto">{papers.length} paper{papers.length !== 1 ? "s" : ""}</span>
                   </div>
-                  <p className="text-xs text-slate-400 ml-4">{meta.sublabel}</p>
-                </div>
-                <div className="space-y-4">
-                  {papers.map((paper) => (
-                    <PaperCard key={paper.id} paper={paper} activeTags={selectedTags} onTagClick={(tag) => setSelectedTags(toggleSet(selectedTags, tag))} />
-                  ))}
-                </div>
+                  {!collapsed && (
+                    <p className="text-xs text-slate-400 ml-[1.375rem] mt-0.5">{meta.sublabel}</p>
+                  )}
+                </button>
+                {!collapsed && (
+                  <div className="space-y-4">
+                    {papers.map((paper) => (
+                      <PaperCard key={paper.id} paper={paper} activeTags={selectedTags} onTagClick={(tag) => setSelectedTags(toggleSet(selectedTags, tag))} />
+                    ))}
+                  </div>
+                )}
               </div>
             );
           })}
