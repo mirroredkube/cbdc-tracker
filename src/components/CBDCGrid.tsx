@@ -32,10 +32,10 @@ export function CBDCGrid({ projects, onSelect }: Props) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.4) }}
           onClick={() => onSelect(project)}
-          className="glass-panel rounded-2xl p-6 cursor-pointer hover:border-slate-600/50 hover:bg-slate-800/80 transition-all group flex flex-col h-full"
+          className="glass-panel rounded-2xl p-6 cursor-pointer dark:hover:border-slate-600/50 hover:border-slate-300 dark:hover:bg-slate-800/80 hover:bg-white/95 transition-all group flex flex-col h-full"
         >
           <div className="flex justify-between items-start mb-4">
-            <h3 className="text-xl font-bold text-white flex items-center gap-3">
+            <h3 className="text-xl font-bold dark:text-white text-slate-900 flex items-center gap-3">
               {project.flagUrl && (
                 <FlagImage
                   src={project.flagUrl}
@@ -56,20 +56,20 @@ export function CBDCGrid({ projects, onSelect }: Props) {
               >
                 <GitCompareArrows className="w-4 h-4" />
               </Link>
-              <div className="p-1.5 rounded-full bg-slate-800 group-hover:bg-blue-500/20 transition-colors">
+              <div className="p-1.5 rounded-full dark:bg-slate-800 bg-slate-100 group-hover:bg-blue-500/20 transition-colors">
                 <ChevronRight className="w-5 h-5 text-slate-500 group-hover:text-blue-400 transition-colors" />
               </div>
             </div>
           </div>
 
-          <p className="text-xs text-slate-500 font-mono mb-3">{project.currencyName}</p>
+          <p className="text-xs dark:text-slate-500 text-slate-400 font-mono mb-3">{project.currencyName}</p>
 
           <div className="flex flex-wrap gap-2 mb-4">
             <StatusPill label={project.stage} variant={project.stage} />
             <StatusPill label={project.type} variant={project.type} />
           </div>
 
-          <p className="text-sm text-slate-400 line-clamp-3 mt-auto leading-relaxed">
+          <p className="text-sm dark:text-slate-400 text-slate-500 line-clamp-3 mt-auto leading-relaxed">
             {project.description}
           </p>
         </motion.div>

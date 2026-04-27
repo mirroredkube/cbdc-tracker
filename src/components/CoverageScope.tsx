@@ -34,7 +34,7 @@ export function CoverageScope() {
   const coverage = Math.round((total / ext) * 100);
 
   return (
-    <div className="mb-6 rounded-xl border border-slate-700/60 bg-slate-800/40 p-4 text-sm">
+    <div className="mb-6 rounded-xl border dark:border-slate-700/60 border-slate-200 dark:bg-slate-800/40 bg-white/80 p-4 text-sm">
       {/* Header row */}
       <div className="flex flex-wrap items-start gap-2 justify-between mb-3">
         <div className="flex items-center gap-2">
@@ -73,7 +73,7 @@ export function CoverageScope() {
                                             DB_RESEARCH_EXTERNAL;
           const { dot, label } = STAGE_STYLE[stage];
           return (
-            <div key={stage} className="rounded-lg bg-slate-900/50 border border-slate-700/40 p-3">
+            <div key={stage} className="rounded-lg dark:bg-slate-900/50 bg-slate-50 border dark:border-slate-700/40 border-slate-200 p-3">
               <div className="flex items-center gap-1.5 mb-1">
                 <span className={`w-2 h-2 rounded-full ${dot}`} />
                 <span className="text-slate-400 text-xs">{label}</span>
@@ -99,7 +99,7 @@ export function CoverageScope() {
       </div>
 
       {/* Why the gap */}
-      <div className="mt-3 rounded-lg border border-slate-700/40 bg-slate-900/40 p-3 space-y-1.5">
+      <div className="mt-3 rounded-lg border dark:border-slate-700/40 border-slate-200 dark:bg-slate-900/40 bg-slate-50 p-3 space-y-1.5">
         <p className="text-slate-300 text-xs font-medium">Why is our coverage lower?</p>
         <ul className="text-slate-500 text-xs space-y-1 list-none">
           <li className="flex gap-2">

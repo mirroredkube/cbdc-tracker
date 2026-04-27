@@ -122,7 +122,7 @@ function DropdownFilter<T extends string>({
       {open && (
         <>
           <div className="fixed inset-0 z-40" onClick={() => setOpen(false)} />
-          <div className="absolute top-full mt-1 left-0 z-50 bg-slate-800 border border-slate-700 rounded-xl shadow-xl min-w-[200px] max-h-72 overflow-y-auto">
+          <div className="absolute top-full mt-1 left-0 z-50 dark:bg-slate-800 bg-white border dark:border-slate-700 border-slate-200 rounded-xl shadow-xl min-w-[200px] max-h-72 overflow-y-auto">
             {options.map((opt) => (
               <button
                 key={opt}
@@ -130,8 +130,8 @@ function DropdownFilter<T extends string>({
                 className={clsx(
                   "flex items-center gap-2.5 w-full px-3 py-2 text-left transition-colors text-sm first:rounded-t-xl last:rounded-b-xl",
                   selected.has(opt)
-                    ? "bg-blue-500/15 text-blue-300"
-                    : "text-slate-300 hover:bg-slate-700/60"
+                    ? "bg-blue-500/15 dark:text-blue-300 text-blue-600"
+                    : "dark:text-slate-300 text-slate-600 dark:hover:bg-slate-700/60 hover:bg-slate-50"
                 )}
               >
                 <div className={clsx("w-3.5 h-3.5 rounded border flex-shrink-0 flex items-center justify-center",
@@ -372,7 +372,7 @@ export function ResearchClient() {
             placeholder="Search title, abstract, or author…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 bg-slate-800/60 border border-slate-700/50 rounded-xl text-sm text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30"
+            className="w-full pl-9 pr-4 py-2 dark:bg-slate-800/60 bg-white border dark:border-slate-700/50 border-slate-200 rounded-xl text-sm dark:text-slate-200 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30"
           />
           {query && (
             <button onClick={() => setQuery("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300">

@@ -49,7 +49,7 @@ export function FilterPanel({
             placeholder="Search country or currency…"
             value={filters.searchQuery}
             onChange={(e) => onSetSearch(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 bg-slate-800/60 border border-slate-700/50 rounded-xl text-sm text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30 transition-colors"
+            className="w-full pl-9 pr-4 py-2 dark:bg-slate-800/60 bg-white border dark:border-slate-700/50 border-slate-200 rounded-xl text-sm dark:text-slate-200 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30 transition-colors"
           />
         </div>
         <button
@@ -57,8 +57,8 @@ export function FilterPanel({
           className={clsx(
             "flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium border transition-all",
             open || isFiltered
-              ? "bg-blue-500/10 border-blue-500/30 text-blue-400"
-              : "bg-slate-800/60 border-slate-700/50 text-slate-300 hover:border-slate-600"
+              ? "bg-blue-500/10 border-blue-500/30 text-blue-500 dark:text-blue-400"
+              : "dark:bg-slate-800/60 bg-white dark:border-slate-700/50 border-slate-200 dark:text-slate-300 text-slate-600 dark:hover:border-slate-600 hover:border-slate-300"
           )}
         >
           <SlidersHorizontal className="w-4 h-4" />
@@ -70,7 +70,7 @@ export function FilterPanel({
         {isFiltered && (
           <button
             onClick={onClear}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm text-slate-400 hover:text-slate-200 border border-slate-700/50 hover:border-slate-600 bg-slate-800/40 transition-all"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm dark:text-slate-400 text-slate-500 dark:hover:text-slate-200 hover:text-slate-700 border dark:border-slate-700/50 border-slate-200 dark:hover:border-slate-600 hover:border-slate-300 dark:bg-slate-800/40 bg-white transition-all"
           >
             <X className="w-3.5 h-3.5" />
             Clear
@@ -83,10 +83,10 @@ export function FilterPanel({
 
       {/* Expandable filter panel */}
       {open && (
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 bg-slate-800/40 border border-slate-700/40 rounded-xl">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 dark:bg-slate-800/40 bg-white/80 border dark:border-slate-700/40 border-slate-200 rounded-xl">
           {/* Type */}
           <div>
-            <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold dark:text-slate-400 text-slate-500 uppercase tracking-wider mb-2">
               Type
             </label>
             <div className="flex flex-wrap gap-2">
@@ -97,8 +97,8 @@ export function FilterPanel({
                   className={clsx(
                     "px-3 py-1 rounded-full text-xs font-medium border transition-all",
                     filters.types.has(t)
-                      ? "bg-blue-500/20 border-blue-500/40 text-blue-300"
-                      : "bg-slate-800 border-slate-700/50 text-slate-400 hover:text-slate-200"
+                      ? "bg-blue-500/20 border-blue-500/40 dark:text-blue-300 text-blue-600"
+                      : "dark:bg-slate-800 bg-slate-50 dark:border-slate-700/50 border-slate-200 dark:text-slate-400 text-slate-500 dark:hover:text-slate-200 hover:text-slate-700"
                   )}
                 >
                   {t}
@@ -109,13 +109,13 @@ export function FilterPanel({
 
           {/* Region */}
           <div>
-            <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold dark:text-slate-400 text-slate-500 uppercase tracking-wider mb-2">
               Region
             </label>
             <select
               value={filters.region}
               onChange={(e) => onSetRegion(e.target.value)}
-              className="w-full bg-slate-800 border border-slate-700/50 rounded-lg px-3 py-1.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50"
+              className="w-full dark:bg-slate-800 bg-white border dark:border-slate-700/50 border-slate-200 rounded-lg px-3 py-1.5 text-sm dark:text-slate-200 text-slate-800 focus:outline-none focus:border-blue-500/50"
             >
               {regions.map((r) => (
                 <option key={r} value={r}>
@@ -127,7 +127,7 @@ export function FilterPanel({
 
           {/* Stage quick-select */}
           <div>
-            <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold dark:text-slate-400 text-slate-500 uppercase tracking-wider mb-2">
               Stage
             </label>
             <div className="flex flex-wrap gap-2">
@@ -141,8 +141,8 @@ export function FilterPanel({
                       className={clsx(
                         "flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border transition-all",
                         active
-                          ? "bg-slate-800/60 border-slate-600/50 text-slate-200"
-                          : "bg-slate-900/40 border-slate-700/30 text-slate-500 opacity-50"
+                          ? "dark:bg-slate-800/60 bg-white dark:border-slate-600/50 border-slate-300 dark:text-slate-200 text-slate-700"
+                          : "dark:bg-slate-900/40 bg-slate-50 dark:border-slate-700/30 border-slate-200 dark:text-slate-500 text-slate-400 opacity-50"
                       )}
                     >
                       <span

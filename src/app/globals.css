@@ -1,25 +1,50 @@
 @import "tailwindcss";
 
-@theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Semantic design tokens ─────────────────────────────────────────────────── */
+:root {
+  /* Light mode */
+  --bg-page:       #f1f5f9;
+  --bg-surface:    rgba(255, 255, 255, 0.85);
+  --bg-surface-2:  #f8fafc;
+  --bg-surface-3:  rgba(241, 245, 249, 0.6);
+  --border-subtle: rgba(203, 213, 225, 0.7);
+  --border:        rgba(148, 163, 184, 0.5);
+  --text-primary:  #0f172a;
+  --text-secondary:#475569;
+  --text-muted:    #94a3b8;
+  --shadow:        0 4px 24px 0 rgba(15, 23, 42, 0.08);
+}
+
+.dark {
+  /* Dark mode */
+  --bg-page:       #0f172a;
+  --bg-surface:    rgba(30, 41, 59, 0.6);
+  --bg-surface-2:  #1e293b;
+  --bg-surface-3:  rgba(15, 23, 42, 0.5);
+  --border-subtle: rgba(51, 65, 85, 0.5);
+  --border:        rgba(71, 85, 105, 0.6);
+  --text-primary:  #f8fafc;
+  --text-secondary:#94a3b8;
+  --text-muted:    #64748b;
+  --shadow:        0 25px 50px -12px rgba(0, 0, 0, 0.4);
 }
 
 @layer base {
-  :root {
-    --background: #0f172a; /* slate-900 */
-    --foreground: #f8fafc; /* slate-50 */
-  }
-
   body {
-    background-color: var(--background);
-    color: var(--foreground);
-    @apply antialiased;
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    @apply antialiased transition-colors duration-200;
   }
 }
 
 @layer utilities {
   .glass-panel {
-    @apply bg-slate-800/60 backdrop-blur-xl border border-slate-700/50 shadow-2xl;
+    background: var(--bg-surface);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow);
   }
 }
