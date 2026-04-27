@@ -521,4 +521,22 @@ export const researchPapers: ResearchPaper[] = [
       "This vision is 10–15 years from realization but is shaping current wholesale CBDC design choices",
     ],
   },
+  {
+    id: "imf-asap-2024",
+    title: "ASAP: A Conceptual Model for Digital Asset Platforms",
+    authors: ["Hervé Tourpe", "Radu Budau"],
+    institution: "IMF",
+    date: "2024-01",
+    url: "https://www.elibrary.imf.org/view/journals/001/2024/019/article-A001-en.xml",
+    abstract: "Inaugurating the IMF's 'Technology Fundamentals for Digital Finance' series, this paper introduces the ASAP model — a four-layer conceptual architecture (Access, Service, Asset, Platform) for digital asset platforms including CBDCs. Drawing on TCP/IP's layered design as an analogy, ASAP provides a framework for separating central bank control of a CBDC asset from private-sector service delivery, enabling interoperability without centralising governance.",
+    tags: ["architecture", "interoperability", "retail-CBDC", "wholesale-CBDC", "programmability", "governance"],
+    relevantCbdcIds: [],
+    keyFindings: [
+      "ASAP layers: Platform (ledger/infrastructure), Asset (the CBDC itself), Service (payment/wallet services), Access (user-facing connectivity) — each independently governed",
+      "A central bank can fully control the Asset layer while allowing private institutions to operate the Service and Access layers, preserving the two-tier banking model",
+      "The layered model enables interoperability across platforms in the same way TCP/IP enabled internet interoperability — through agreed interfaces, not shared ownership",
+      "Programmability lives in the Service layer, keeping the Asset layer simple and stable — a design principle that reduces systemic risk",
+      "ASAP is the IMF's reference architecture for evaluating and comparing CBDC platform designs across jurisdictions",
+    ],
+  },
 ];
