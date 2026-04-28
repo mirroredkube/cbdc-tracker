@@ -119,14 +119,14 @@ export function NewsClient() {
             placeholder="Search news…"
             value={search}
             onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-            className="w-full pl-9 pr-4 py-2 bg-slate-800/60 border border-slate-700/50 rounded-xl text-sm text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30 transition-colors"
+            className="w-full pl-9 pr-4 py-2 dark:bg-slate-800/60 bg-white border dark:border-slate-700/50 border-slate-200 rounded-xl text-sm dark:text-slate-200 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30 transition-colors"
           />
         </div>
 
         <select
           value={filterCurrency}
           onChange={(e) => { setFilterCurrency(e.target.value); setPage(1); }}
-          className="bg-slate-800/60 border border-slate-700/50 rounded-xl px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50"
+          className="dark:bg-slate-800/60 bg-white border dark:border-slate-700/50 border-slate-200 rounded-xl px-3 py-2 text-sm dark:text-slate-200 text-slate-800 focus:outline-none focus:border-blue-500/50"
         >
           {currencies.map((c) => (
             <option key={c.id} value={c.id}>{c.label}</option>
@@ -136,7 +136,7 @@ export function NewsClient() {
         {isFiltered && (
           <button
             onClick={clearFilters}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm text-slate-400 hover:text-slate-200 border border-slate-700/50 hover:border-slate-600 bg-slate-800/40 transition-all"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm dark:text-slate-400 text-slate-500 dark:hover:text-slate-200 hover:text-slate-700 border dark:border-slate-700/50 border-slate-200 dark:hover:border-slate-600 hover:border-slate-300 dark:bg-slate-800/40 bg-white transition-all"
           >
             <X className="w-3.5 h-3.5" /> Clear
           </button>
@@ -164,7 +164,7 @@ export function NewsClient() {
         <div className="flex justify-center">
           <button
             onClick={() => setPage((p) => p + 1)}
-            className="px-6 py-2.5 bg-slate-800/60 hover:bg-slate-700/60 border border-slate-700/50 hover:border-slate-600 rounded-xl text-sm font-medium text-slate-200 transition-all"
+            className="px-6 py-2.5 dark:bg-slate-800/60 bg-white dark:hover:bg-slate-700/60 hover:bg-slate-50 border dark:border-slate-700/50 border-slate-200 dark:hover:border-slate-600 hover:border-slate-300 rounded-xl text-sm font-medium dark:text-slate-200 text-slate-700 transition-all"
           >
             Show more news
           </button>

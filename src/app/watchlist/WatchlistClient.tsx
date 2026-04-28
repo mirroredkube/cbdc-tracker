@@ -110,7 +110,7 @@ function SubscriptionForm() {
             placeholder="your@email.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="flex-1 min-w-[200px] px-4 py-2 bg-slate-800/60 border border-slate-700/50 rounded-xl text-sm text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30"
+            className="flex-1 min-w-[200px] px-4 py-2 dark:bg-slate-800/60 bg-white border dark:border-slate-700/50 border-slate-200 rounded-xl text-sm dark:text-slate-200 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30"
           />
           <button
             type="submit"
