@@ -42,7 +42,7 @@ function MiniRiskBar({ score }: { score: number }) {
         {[1, 2, 3, 4, 5].map((n) => (
           <div
             key={n}
-            className={clsx("w-2.5 h-2 rounded-sm", n <= score ? RISK_COLOR[score] : "bg-slate-700")}
+            className={clsx("w-2.5 h-2 rounded-sm", n <= score ? RISK_COLOR[score] : "dark:bg-slate-700 bg-slate-200")}
           />
         ))}
       </div>
@@ -72,7 +72,7 @@ interface SectionDef {
 function boolCell(v: CellValue) {
   const yes = v === true || v === "Yes";
   return (
-    <span className={clsx("font-medium", yes ? "text-emerald-400" : "text-slate-500")}>
+    <span className={clsx("font-medium", yes ? "text-emerald-400" : "dark:text-slate-500 text-slate-400")}>
       {yes ? "Yes" : "No"}
     </span>
   );
@@ -246,21 +246,21 @@ function EmptyState({ allProjects, onAdd }: { allProjects: CBDCProject[]; onAdd:
 
   return (
     <div className="flex flex-col items-center py-20 text-center gap-6">
-      <p className="text-slate-400 text-lg font-medium">Select CBDCs to compare</p>
-      <p className="text-slate-500 text-sm">Pick up to 4 CBDCs to see them side-by-side</p>
+      <p className="dark:text-slate-400 text-slate-600 text-lg font-medium">Select CBDCs to compare</p>
+      <p className="dark:text-slate-500 text-slate-500 text-sm">Pick up to 4 CBDCs to see them side-by-side</p>
       <div className="flex flex-wrap gap-2 justify-center">
         {suggestedProjects.map((p) => (
           <button
             key={p.tag}
             onClick={() => onAdd(p.tag)}
-            className="flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-700 text-slate-300 hover:border-blue-500/40 hover:text-blue-300 hover:bg-blue-500/5 transition-all text-sm"
+            className="flex items-center gap-2 px-3 py-2 rounded-xl border dark:border-slate-700 border-slate-300 dark:text-slate-300 text-slate-700 hover:border-blue-500/40 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-blue-500/5 transition-all text-sm"
           >
             {p.flagUrl && <FlagImage src={p.flagUrl} alt="" size={16} />}
             {p.currencyName}
           </button>
         ))}
       </div>
-      <p className="text-xs text-slate-600">Or use "Add CBDC" above to choose any</p>
+      <p className="text-xs dark:text-slate-600 text-slate-400">Or use "Add CBDC" above to choose any</p>
     </div>
   );
 }
@@ -312,7 +312,7 @@ export function CompareClient({
       {/* Page header */}
       <div className="flex items-center justify-between mb-6 gap-4 flex-wrap">
         <div className="flex items-center gap-3">
-          <Link href="/" className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-slate-200 transition-colors">
+          <Link href="/" className="inline-flex items-center gap-1.5 text-sm dark:text-slate-400 text-slate-500 dark:hover:text-slate-200 hover:text-slate-700 transition-colors">
             <ArrowLeft className="w-4 h-4" /> Dashboard
           </Link>
           <span className="text-slate-700">/</span>
@@ -321,7 +321,7 @@ export function CompareClient({
         {colCount > 0 && (
           <button
             onClick={handleCopy}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-700 text-slate-400 hover:text-slate-200 hover:border-slate-600 transition-colors text-sm"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg border dark:border-slate-700 border-slate-200 dark:text-slate-400 text-slate-500 dark:hover:text-slate-200 hover:text-slate-700 dark:hover:border-slate-600 hover:border-slate-300 transition-colors text-sm"
           >
             {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
             {copied ? "Copied!" : "Share"}
@@ -347,11 +347,11 @@ export function CompareClient({
       {colCount === 0 ? (
         <EmptyState allProjects={allProjects} onAdd={handleAdd} />
       ) : (
-        <div className="overflow-x-auto rounded-2xl border border-slate-700/50">
+        <div className="overflow-x-auto rounded-2xl border dark:border-slate-700/50 border-slate-200">
           <table className="w-full border-collapse min-w-[600px]">
             <thead className="sticky top-0 z-10">
-              <tr className="bg-slate-900 border-b border-slate-700/50">
-                <th className="text-left px-4 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider w-44 min-w-[140px]">
+              <tr className="dark:bg-slate-900 bg-white border-b dark:border-slate-700/50 border-slate-200">
+                <th className="text-left px-4 py-3 text-xs font-bold dark:text-slate-500 text-slate-500 uppercase tracking-wider w-44 min-w-[140px]">
                   Field
                 </th>
                 {projects.map((p) => (
@@ -369,7 +369,7 @@ export function CompareClient({
             <tbody>
               {SECTIONS.map((section) => (
                 <React.Fragment key={section.title}>
-                  <tr className="bg-slate-800/60">
+                  <tr className="dark:bg-slate-800/60 bg-slate-100/80">
                     <td
                       colSpan={colCount + 1}
                       className="px-4 py-2 text-xs font-bold text-slate-400 uppercase tracking-widest"
@@ -384,9 +384,9 @@ export function CompareClient({
                     return (
                       <tr
                         key={`${section.title}-${row.label}`}
-                        className="border-t border-slate-700/30 hover:bg-slate-800/30 transition-colors"
+                        className="border-t dark:border-slate-700/30 border-slate-200/80 dark:hover:bg-slate-800/30 hover:bg-slate-50/80 transition-colors"
                       >
-                        <td className="px-4 py-3 text-xs text-slate-500 font-medium whitespace-nowrap align-middle">
+                        <td className="px-4 py-3 text-xs dark:text-slate-500 text-slate-600 font-medium whitespace-nowrap align-middle">
                           {row.label}
                         </td>
                         {projects.map((p, i) => {
@@ -402,7 +402,7 @@ export function CompareClient({
                             >
                               <div className="flex justify-center">
                                 {row.render ? row.render(val, p) : (
-                                  <span className={clsx("text-slate-200", diff && "font-semibold")}>
+                                  <span className={clsx("dark:text-slate-200 text-slate-700", diff && "font-semibold")}>
                                     {val === null || val === undefined ? "—" : String(val)}
                                   </span>
                                 )}
