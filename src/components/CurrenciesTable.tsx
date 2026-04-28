@@ -84,7 +84,7 @@ export function CurrenciesTable({ projects, onSelect }: Props) {
   };
 
   function SortIcon({ col }: { col: SortKey }) {
-    if (sortKey !== col) return <ChevronsUpDown className="w-3.5 h-3.5 text-slate-600" />;
+    if (sortKey !== col) return <ChevronsUpDown className="w-3.5 h-3.5 dark:text-slate-600 text-slate-400" />;
     return sortDir === "asc"
       ? <ChevronUp className="w-3.5 h-3.5 text-blue-400" />
       : <ChevronDown className="w-3.5 h-3.5 text-blue-400" />;
@@ -95,22 +95,22 @@ export function CurrenciesTable({ projects, onSelect }: Props) {
   return (
     <div className="glass-panel rounded-2xl overflow-hidden mt-8">
       {/* Table header row */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-slate-700/50">
-        <span className="text-sm font-semibold text-white">
+      <div className="flex items-center justify-between px-4 py-3 border-b dark:border-slate-700/50 border-slate-200">
+        <span className="text-sm font-semibold dark:text-white text-slate-900">
           All Currencies
           <span className="ml-2 text-xs font-normal text-slate-500">{projects.length} total</span>
         </span>
         <div className="relative">
           <button
             onClick={() => setColPickerOpen((v) => !v)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 border border-slate-700/50 hover:border-slate-600 bg-slate-800/40 transition-all"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium dark:text-slate-400 text-slate-500 dark:hover:text-slate-200 hover:text-slate-700 border dark:border-slate-700/50 border-slate-200 dark:hover:border-slate-600 hover:border-slate-300 dark:bg-slate-800/40 bg-white transition-all"
           >
             <Settings2 className="w-3.5 h-3.5" />
             Edit columns
           </button>
           {colPickerOpen && (
-            <div className="absolute right-0 top-9 z-20 bg-slate-800 border border-slate-700/50 rounded-xl shadow-2xl p-3 w-48">
-              <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Columns</p>
+            <div className="absolute right-0 top-9 z-20 dark:bg-slate-800 bg-white border dark:border-slate-700/50 border-slate-200 rounded-xl shadow-2xl p-3 w-48">
+              <p className="text-xs font-bold dark:text-slate-400 text-slate-500 uppercase tracking-wider mb-2">Columns</p>
               {COLUMNS.map((col) => (
                 <label key={col.key} className="flex items-center gap-2 py-1 cursor-pointer">
                   <input
@@ -119,7 +119,7 @@ export function CurrenciesTable({ projects, onSelect }: Props) {
                     onChange={() => toggleCol(col.key)}
                     className="accent-blue-500"
                   />
-                  <span className="text-sm text-slate-200">{col.label}</span>
+                  <span className="text-sm dark:text-slate-200 text-slate-700">{col.label}</span>
                 </label>
               ))}
             </div>
@@ -131,12 +131,12 @@ export function CurrenciesTable({ projects, onSelect }: Props) {
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-slate-700/50">
+            <tr className="border-b dark:border-slate-700/50 border-slate-200">
               {activeColumns.map((col) => (
                 <th
                   key={col.key}
                   onClick={() => handleSort(col.key)}
-                  className="px-4 py-3 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider cursor-pointer hover:text-slate-200 whitespace-nowrap select-none"
+                  className="px-4 py-3 text-left text-xs font-semibold dark:text-slate-400 text-slate-500 uppercase tracking-wider cursor-pointer dark:hover:text-slate-200 hover:text-slate-700 whitespace-nowrap select-none"
                 >
                   <span className="flex items-center gap-1">
                     {col.label}
@@ -144,7 +144,7 @@ export function CurrenciesTable({ projects, onSelect }: Props) {
                   </span>
                 </th>
               ))}
-              <th className="px-4 py-3 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider w-20">
+              <th className="px-4 py-3 text-left text-xs font-semibold dark:text-slate-400 text-slate-500 uppercase tracking-wider w-20">
                 Actions
               </th>
             </tr>
@@ -155,8 +155,8 @@ export function CurrenciesTable({ projects, onSelect }: Props) {
                 key={project.id}
                 onClick={() => onSelect(project)}
                 className={clsx(
-                  "border-b border-slate-700/20 last:border-0 hover:bg-slate-800/50 cursor-pointer transition-colors",
-                  i % 2 === 0 ? "bg-transparent" : "bg-slate-800/20"
+                  "border-b dark:border-slate-700/20 border-slate-100 last:border-0 dark:hover:bg-slate-800/50 hover:bg-slate-50 cursor-pointer transition-colors",
+                  i % 2 === 0 ? "bg-transparent" : "dark:bg-slate-800/20 bg-slate-50/60"
                 )}
               >
                 {activeColumns.map((col) => {
@@ -169,27 +169,27 @@ export function CurrenciesTable({ projects, onSelect }: Props) {
                               src={project.flagUrl}
                               alt=""
                               size={20}
-                              className="border border-slate-700"
+                              className="border dark:border-slate-700 border-slate-200"
                             />
                           )}
-                          <span className="font-medium text-white">{project.currencyName}</span>
+                          <span className="font-medium dark:text-white text-slate-900">{project.currencyName}</span>
                         </div>
                       )}
-                      {col.key === "country" && <span className="text-slate-300">{project.country}</span>}
+                      {col.key === "country" && <span className="dark:text-slate-300 text-slate-600">{project.country}</span>}
                       {col.key === "stage" && <StatusPill label={project.stage} variant={project.stage} />}
-                      {col.key === "announcementYear" && <span className="text-slate-300">{project.announcementYear}</span>}
+                      {col.key === "announcementYear" && <span className="dark:text-slate-300 text-slate-600">{project.announcementYear}</span>}
                       {col.key === "techStack" && (
-                        <span className="text-xs font-mono text-emerald-400 truncate max-w-[160px] block">
+                        <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 truncate max-w-[160px] block">
                           {project.techStack}
                         </span>
                       )}
                       {col.key === "usesDLT" && (
-                        <span className={project.usesDLT ? "text-emerald-400" : "text-red-400"}>
+                        <span className={project.usesDLT ? "text-emerald-500 dark:text-emerald-400" : "text-red-500 dark:text-red-400"}>
                           {project.usesDLT ? "Yes" : "No"}
                         </span>
                       )}
                       {col.key === "interoperable" && (
-                        <span className={project.interoperable ? "text-emerald-400" : "text-slate-400"}>
+                        <span className={project.interoperable ? "text-emerald-500 dark:text-emerald-400" : "dark:text-slate-400 text-slate-500"}>
                           {project.interoperable ? "Yes" : "No"}
                         </span>
                       )}
@@ -201,7 +201,7 @@ export function CurrenciesTable({ projects, onSelect }: Props) {
                     <WatchFlag id={project.id} />
                     <Link
                       href={`/currency/${project.tag}`}
-                      className="p-1 rounded text-slate-500 hover:text-blue-400 transition-colors"
+                      className="p-1 rounded dark:text-slate-500 text-slate-400 hover:text-blue-400 transition-colors"
                       aria-label="View details"
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -216,22 +216,22 @@ export function CurrenciesTable({ projects, onSelect }: Props) {
 
       {/* Pagination */}
       {totalPages > 1 && (
-        <div className="flex items-center justify-between px-4 py-3 border-t border-slate-700/50">
-          <span className="text-xs text-slate-500">
+        <div className="flex items-center justify-between px-4 py-3 border-t dark:border-slate-700/50 border-slate-200">
+          <span className="text-xs dark:text-slate-500 text-slate-400">
             Page {page} of {totalPages}
           </span>
           <div className="flex gap-1">
             <button
               disabled={page === 1}
               onClick={() => setPage((p) => p - 1)}
-              className="px-3 py-1 text-xs rounded-lg border border-slate-700/50 text-slate-400 hover:text-slate-200 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              className="px-3 py-1 text-xs rounded-lg border dark:border-slate-700/50 border-slate-200 dark:text-slate-400 text-slate-500 dark:hover:text-slate-200 hover:text-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
             >
               Previous
             </button>
             <button
               disabled={page === totalPages}
               onClick={() => setPage((p) => p + 1)}
-              className="px-3 py-1 text-xs rounded-lg border border-slate-700/50 text-slate-400 hover:text-slate-200 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              className="px-3 py-1 text-xs rounded-lg border dark:border-slate-700/50 border-slate-200 dark:text-slate-400 text-slate-500 dark:hover:text-slate-200 hover:text-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
             >
               Next
             </button>
