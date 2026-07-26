@@ -25,7 +25,7 @@ export interface CBDCProject {
   coordinates: [number, number];   // [longitude, latitude]
 }
 
-export const DB_LAST_UPDATED = "2026-04-26";
+export const DB_LAST_UPDATED = "2026-07-26";
 
 export const cbdcProjects: CBDCProject[] = [
   {
@@ -44,7 +44,7 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: true,
     region: "Asia",
     isoNumeric: "156",
-    description: "China's e-CNY remains the most mature large-scale CBDC deployment. The PBOC continues to promote the e-CNY 'actively and prudently' as part of its digital-finance agenda, while maintaining a dedicated CBDC section and ongoing policy work through 2026.",
+    description: "China's e-CNY remains the most mature large-scale CBDC deployment. In June 2026 the PBOC launched the Cross-border e-CNY Transfer Services (CBETS) platform with 26 financial institutions across Singapore, Thailand, Brazil, UAE, and others. In July 2026 the first cross-border CBDC payment to Singapore was completed (~10 million yuan in import shipping fees). The e-CNY now functions as an interest-bearing digital deposit instrument with deposit insurance coverage.",
     whitepapers: [
       { title: "PBOC CBDC topic page", url: "https://www.pbc.gov.cn/en/3688006/4706656/index.html" },
       { title: "Progress of Research and Development of E-CNY in China", url: "https://www.pbc.gov.cn/en/3688110/3688172/4157443/4293696/2021072014364791207.pdf" }
@@ -89,7 +89,7 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: true,
     region: "Europe",
     euMemberFill: true,
-    description: "The ECB moved the digital euro into its next project phase in October 2025. In March and April 2026 it opened additional rulebook workstreams, called for pilot participants, and signed agreements with European standard setters to support online and contactless payments. Issuance still depends on EU legislation.",
+    description: "The European Parliament adopted its negotiating position on July 9, 2026, clearing the way for trilogue negotiations with the Council. In July 2026 the ECB published rulebook v0.91 and selected 36 payment service providers for a 12-month pilot beginning September 2027. If legislation is adopted by end of 2026, issuance could come in 2029.",
     whitepapers: [
       { title: "Digital euro", url: "https://www.ecb.europa.eu/euro/digital_euro/html/index.eu.html" },
       { title: "ECB signs agreements with European standard setters to facilitate digital euro payments", url: "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr260424~202f9d832b.en.html" },
@@ -114,7 +114,7 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: true,
     region: "Americas",
     isoNumeric: "076",
-    description: "Drex remains in pilot mode on a Banco Central do Brasil-operated DLT platform. The official public material continues to describe Drex as a digital-real platform for wholesale settlement with retail access provided by regulated intermediaries, while Phase 2 pilot reporting is still being finalized.",
+    description: "Drex remains in pilot mode but has pivoted away from blockchain/DLT to a proprietary BCB infrastructure due to scalability and privacy concerns. The focus is now on institutional use cases such as collateral management and credit guarantees. Brazilian lawmakers are advancing Bill 4212/25 with guardrails against financial exclusion and surveillance. Full public launch is not expected before 2027.",
     whitepapers: [
       { title: "Drex - Digital Brazilian Real", url: "https://www.bcb.gov.br/en/financialstability/drex_en" },
       { title: "Piloto Drex", url: "https://www.bcb.gov.br/estabilidadefinanceira/real-digital-piloto" }
@@ -138,7 +138,7 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: false,
     region: "Africa",
     isoNumeric: "566",
-    description: "The eNaira launched in 2021 to foster financial inclusion and cross-border trade. As of February 2025, circulation rose to N18.31 billion, but adoption remains extremely low (~0.37% of currency in circulation, with 98.5% of wallets never used). The CBN announced a reevaluation of the program in 2025.",
+    description: "In June 2026 the CBN published its Payments System Vision 2028, officially acknowledging the eNaira's low adoption and shifting strategy from a consumer-facing payment tool to backend infrastructure. The new focus is on G2P welfare disbursements, cross-border settlements, and fintech API integration. Transaction volume (~₦22 billion) remains a tiny fraction of Nigeria's ~₦1 quadrillion electronic payments.",
     whitepapers: [{ title: "Design Paper for the eNaira", url: "https://www.cbn.gov.ng/Out/2024/RSD/Adoption%20of%20the%20eNaira%20Issues%20and%20the%20way%20forward.pdf" }],
     flagUrl: "https://flagcdn.com/ng.svg",
     coordinates: [8.6753, 9.082]
@@ -159,7 +159,7 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: false,
     region: "Americas",
     isoNumeric: "840",
-    description: "The U.S. has not committed to issuing a CBDC. A January 23, 2025 White House executive order prohibits executive agencies from establishing, issuing, or promoting a CBDC, but the Federal Reserve's public CBDC page still states that it has made no decision on whether to pursue or implement one.",
+    description: "In June 2026 the U.S. Senate passed the 21st Century ROAD to Housing Act, which legislatively bans the Federal Reserve from issuing a retail CBDC — or any 'substantially similar' digital asset — until December 31, 2030. The ban specifically exempts private stablecoins. This codifies the January 2025 executive order and marks a definitive shift toward supporting private stablecoins over a state-issued digital dollar.",
     whitepapers: [
       { title: "Federal Reserve CBDC topic page", url: "https://www.federalreserve.gov/central-bank-digital-currency.htm" },
       { title: "Strengthening American Leadership in Digital Financial Technology", url: "https://www.whitehouse.gov/presidential-actions/2025/01/strengthening-american-leadership-in-digital-financial-technology/" },
@@ -184,7 +184,7 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: true,
     region: "Asia",
     isoNumeric: "356",
-    description: "India's e₹ program remains in pilot mode across retail and wholesale tracks. Recent official use cases include programmable CBDC distribution for food subsidies in Puducherry, alongside continued work on offline functionality and broader ecosystem participation.",
+    description: "India's e₹ program continues in pilot mode with expanding scope. The RBI's 2025-26 annual report (May 2026) outlined plans for DBT welfare payments (expanded from Puducherry to Gujarat and Chandigarh), cross-border pilots via MoUs with Singapore's MAS and UAE's CBUAE, and a Unified Markets Interface for wholesale asset tokenisation. Retail e₹ circulation reached ~₹771.66 crore as of March 2026. NFC-based offline payments are in testing.",
     whitepapers: [
       { title: "Concept Note on Central Bank Digital Currency", url: "https://rbi.org.in/Scripts/PublicationReportDetails.aspx?UrlPage=&ID=1218" },
       { title: "Government of India launches CBDC-based Digital Food Currency pilot", url: "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2233186" }
@@ -229,7 +229,7 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: false,
     region: "Asia",
     isoNumeric: "392",
-    description: "The Bank of Japan continues a CBDC pilot program and CBDC Forum work with private-sector participants, while still stopping short of any issuance decision. Its February and March 2026 committee and working-group materials show experimentation is continuing rather than moving toward launch.",
+    description: "The 11th Expert Meeting on CBDC was held in June 2026, producing a progress report on the division of labor between public and private sectors and a deployment roadmap. The BoJ maintains a 'non-prejudicial' stance — no issuance decision has been made. Discussions have shifted from 'if' to 'how' a digital yen would defend monetary sovereignty against foreign CBDCs and global stablecoins. Japan Post Bank is separately developing DCJPY, a deposit-backed digital currency.",
     whitepapers: [
       { title: "Central Bank Digital Currency", url: "https://www.boj.or.jp/en/paym/digital" },
       { title: "CBDC Forum", url: "https://www.boj.or.jp/en/paym/digital/d_forum/index.htm" }
@@ -253,7 +253,7 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: false,
     region: "Europe",
     isoNumeric: "826",
-    description: "The UK remains in the design phase for a potential digital pound. The Bank of England says the current design phase ends in 2026, the Digital Pound Lab is running through July 2026, and a later-2026 assessment will decide whether to proceed to a build phase.",
+    description: "The Bank of England is finalizing a detailed 'blueprint' for the digital pound, expected to be published later in 2026 alongside a joint BoE/HM Treasury assessment. The Digital Pound Lab has continued experiments on use cases, business models, and interoperability. A build-or-no-build decision is expected late 2026. Primary legislation would be required to guarantee the government cannot access individual spending data. Proposed holding limits remain £10,000–£20,000.",
     whitepapers: [
       { title: "The digital pound", url: "https://www.bankofengland.co.uk/the-digital-pound" },
       { title: "Progress update: Digital Pound Design Phase", url: "https://www.bankofengland.co.uk/the-digital-pound/progress-update-digital-pound-design-phase" },
@@ -278,7 +278,7 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: true,
     region: "Oceania",
     isoNumeric: "036",
-    description: "After completing a retail eAUD pilot in August 2023, Australia formally pivoted to wholesale CBDC only. In September 2024, the RBA and Treasury concluded there is 'no clear public interest case' for retail CBDC. Project Acacia now focuses exclusively on wholesale settlement efficiencies and tokenized assets.",
+    description: "Project Acacia concluded in May 2026 with its final report. The project tested 20 use cases (12 with real money/assets) including a live repo transaction using tokenised Australian Government Bonds settled with wholesale CBDC in June 2026 — a world first. The RBA found 'no compelling rationale' for expanding access to central bank money now, but acknowledged the case could strengthen if tokenised markets become systemically important.",
     whitepapers: [{ title: "Australian CBDC Pilot for Digital Finance Innovation", url: "https://www.rba.gov.au/payments-and-infrastructure/central-bank-digital-currency/" }],
     flagUrl: "https://flagcdn.com/au.svg",
     coordinates: [133.7751, -25.2744]
@@ -320,7 +320,7 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: true,
     region: "Asia",
     isoNumeric: "702",
-    description: "The Monetary Authority of Singapore advances wholesale CBDC and purpose-bound money (PBM). Three major banks (DBS, OCBC, UOB) are using wholesale CBDC for overnight interbank lending, and MAS piloted tokenized MAS bills settled via CBDC in 2025. MAS has confirmed no urgent need for a retail CBDC.",
+    description: "MAS launched the BLOOM (Borderless, Liquid, Open, Online, Multi-currency) initiative in late 2025, expanding Project Orchid's scope to multi-currency settlement. In June 2026 MAS established the Future of Finance Institute (FFI) to scale tokenisation and AI innovation. The SGD Testnet continues live wholesale CBDC trials for interbank lending and tokenised MAS Bills. MAS maintains there is no immediate need for a retail CBDC.",
     whitepapers: [
       { title: "Project Orchid: Purpose Bound Money", url: "https://www.mas.gov.sg/publications/monographs-or-information-paper/2022/project-orchid" },
       { title: "Project Ubin+: Cross-border Connectivity", url: "https://www.mas.gov.sg/schemes-and-initiatives/ubin-plus" }
@@ -391,7 +391,7 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: false,
     region: "Europe",
     isoNumeric: "643",
-    description: "Russia's digital ruble remains in pilot use, but the Bank of Russia has set 1 September 2026 as the start of wider staged adoption for major banks and large merchants. Official 2026 updates also show the platform expanding to bulk payouts and cross-border CBDC settlement rules within the pilot.",
+    description: "Preparations are complete for nationwide rollout starting September 1, 2026. All 12 systemically important banks must support digital ruble transactions and large merchants (>120M ruble revenue) must accept payments via a universal QR code system. Mid-sized firms follow by September 2027 and all businesses by 2028. Central Bank Governor Nabiullina confirmed technological readiness, though a VTsIOM poll found 51% of Russians remain unwilling to adopt.",
     whitepapers: [
       { title: "Digital ruble services expand", url: "https://cbr.ru/eng/press/event/?id=28340" },
       { title: "Large-scale introduction of digital ruble to begin on 1 September 2026", url: "https://www.cbr.ru/eng/press/event/?id=25774" },
@@ -416,7 +416,7 @@ export const cbdcProjects: CBDCProject[] = [
     interoperable: false,
     region: "Africa",
     isoNumeric: "288",
-    description: "Ghana continues to treat the eCedi as a proof-of-concept focused on inclusion, offline payments, and future interoperability. In April 2026 the Bank of Ghana republished its design paper and eCedi report on its current site, signaling that the project remains active as an exploratory program rather than a launched currency.",
+    description: "Ghana continues to treat the eCedi as a proof-of-concept focused on inclusion, offline payments, and future interoperability. In April 2026 the Bank of Ghana republished its design paper and eCedi report on its current website, reaffirming the project remains active as an exploratory program rather than a launched currency. Testing continues on the G+D Filia platform.",
     whitepapers: [
       { title: "Design Paper of the Digital Cedi (eCedi)", url: "https://www.bog.gov.gh/news/design-paper-of-the-digital-cedi-ecedi/" },
       { title: "The eCedi Report", url: "https://www.bog.gov.gh/news/the-ecedi-report/" },

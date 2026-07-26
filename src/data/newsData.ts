@@ -9,10 +9,111 @@ export interface NewsItem {
   countries: string[];
 }
 
-export const NEWS_LAST_UPDATED = "2026-04-24";
+export const NEWS_LAST_UPDATED = "2026-07-26";
 
 export const newsItems: NewsItem[] = [
-  // ── 2026 ──────────────────────────────────────────────────────────────
+  // ── 2026 (May–July) ──────────────────────────────────────────────────
+  {
+    id: "n48",
+    title: "European Parliament Adopts Digital Euro Negotiating Position in Landmark Vote",
+    date: "2026-07-09",
+    source: "European Central Bank",
+    url: "https://www.ecb.europa.eu/euro/digital_euro/html/index.eu.html",
+    summary: "The European Parliament formally adopted its negotiating position on the digital euro regulation on July 9, 2026. Combined with the Council's mandate from December 2025, trilogue negotiations can now begin. ECB Board member Cipollone called it a milestone for democratic legitimacy. If legislation passes by year-end, issuance could come in 2029.",
+    currencyIds: ["eu"],
+    countries: ["European Union"],
+  },
+  {
+    id: "n47",
+    title: "ECB Publishes Rulebook v0.91 and Selects 36 PSPs for Digital Euro Pilot",
+    date: "2026-07-14",
+    source: "European Central Bank / Bundesbank",
+    url: "https://www.ecb.europa.eu/euro/digital_euro/html/index.eu.html",
+    summary: "The ECB published version 0.91 of the digital euro scheme rulebook incorporating market consultation feedback, and selected 36 payment service providers across the euro area for a 12-month pilot exercise beginning September 2027 to test reliability and user experience.",
+    currencyIds: ["eu"],
+    countries: ["European Union"],
+  },
+  {
+    id: "n46",
+    title: "China Completes First Cross-Border e-CNY Payment to Singapore via CBETS",
+    date: "2026-07-15",
+    source: "South China Morning Post",
+    url: "https://www.scmp.com",
+    summary: "China completed its first cross-border digital yuan payment to Singapore, settling nearly 10 million yuan in import shipping fees through the CBETS (Cross-border e-CNY Transfer Services) platform. The platform, launched in June 2026 with 26 financial institutions, enables direct round-the-clock settlements bypassing traditional intermediary banking.",
+    currencyIds: ["chn"],
+    countries: ["China"],
+  },
+  {
+    id: "n45",
+    title: "26 Financial Institutions Join China's CBETS Cross-Border e-CNY Platform",
+    date: "2026-06-20",
+    source: "China Daily",
+    url: "https://www.chinadaily.com.cn",
+    summary: "The PBOC launched the CBETS cross-border e-CNY platform with 26 financial institutions — including Standard Chartered (China) and overseas branches of Chinese banks in Singapore, Thailand, Laos, Qatar, Brazil, and the UAE — signing agreements to become direct participants for faster international settlements.",
+    currencyIds: ["chn"],
+    countries: ["China"],
+  },
+  {
+    id: "n44",
+    title: "U.S. Senate Passes Legislation Banning Federal Reserve Retail CBDC Until 2030",
+    date: "2026-06-15",
+    source: "Bitcoin Foundation",
+    url: "https://www.bitcoinfoundation.org",
+    summary: "The U.S. Senate passed the 21st Century ROAD to Housing Act containing a provision that prohibits the Federal Reserve from issuing a retail CBDC or any 'substantially similar' digital asset until December 31, 2030. The ban exempts private stablecoins and codifies the January 2025 executive order, marking a definitive U.S. shift toward private stablecoins.",
+    currencyIds: ["usa"],
+    countries: ["USA"],
+  },
+  {
+    id: "n43",
+    title: "Nigeria CBN Publishes PSV 2028, Repositions eNaira as Backend Infrastructure",
+    date: "2026-06-05",
+    source: "Central Bank of Nigeria",
+    url: "https://www.cbn.gov.ng",
+    summary: "The CBN's Payments System Vision 2028 roadmap officially acknowledges the eNaira's low adoption and shifts strategy from consumer-facing payments to backend infrastructure for G2P welfare disbursements, cross-border settlements, and fintech API integration.",
+    currencyIds: ["nga"],
+    countries: ["Nigeria"],
+  },
+  {
+    id: "n42",
+    title: "RBI Annual Report Outlines Expanded CBDC Pilots for Welfare, Cross-Border, and Tokenisation",
+    date: "2026-05-28",
+    source: "Reserve Bank of India",
+    url: "https://rbi.org.in",
+    summary: "The RBI's 2025-26 annual report detailed expanded Digital Rupee pilots: DBT welfare payments broadened from Puducherry to Gujarat and Chandigarh, cross-border MoUs signed with Singapore's MAS and UAE's CBUAE, and a Unified Markets Interface developed for wholesale asset tokenisation. Retail e₹ circulation was ₹771.66 crore as of March 2026.",
+    currencyIds: ["ind"],
+    countries: ["India"],
+  },
+  {
+    id: "n41",
+    title: "Japan Holds 11th Expert Meeting on CBDC; Focus Shifts from 'If' to 'How'",
+    date: "2026-06-10",
+    source: "Bank of Japan / Ministry of Finance",
+    url: "https://www.boj.or.jp/en/paym/digital",
+    summary: "The 11th Expert Meeting on CBDC produced a progress report on public-private sector division of labor and a deployment roadmap. Discussions have shifted from whether a digital yen is needed to how it would defend monetary sovereignty against foreign CBDCs and global stablecoins. No issuance decision has been made.",
+    currencyIds: ["jpn"],
+    countries: ["Japan"],
+  },
+  {
+    id: "n40",
+    title: "Australia's Project Acacia Concludes with Final Report; Live Repo wCBDC Settlement Achieved",
+    date: "2026-05-15",
+    source: "Reserve Bank of Australia",
+    url: "https://www.rba.gov.au/payments-and-infrastructure/central-bank-digital-currency/",
+    summary: "Project Acacia concluded in May 2026 after testing 20 use cases. A world-first live repo transaction using tokenised Australian Government Bonds was settled with wholesale CBDC in June 2026. The RBA found 'no compelling rationale' for expanding central bank money access now but noted the case could strengthen if tokenised markets become systemically important.",
+    currencyIds: ["aus"],
+    countries: ["Australia"],
+  },
+  {
+    id: "n39",
+    title: "Singapore MAS Establishes Future of Finance Institute to Scale Tokenisation and AI",
+    date: "2026-06-25",
+    source: "Monetary Authority of Singapore",
+    url: "https://www.mas.gov.sg",
+    summary: "MAS announced the Future of Finance Institute (FFI) to centralize and scale financial innovation in tokenisation and AI, building on Project Orchid and Project Guardian. The BLOOM initiative continues to expand multi-currency wholesale CBDC settlement capabilities with international financial institutions.",
+    currencyIds: ["sgp"],
+    countries: ["Singapore"],
+  },
+  // ── 2026 (Q1–Q2) ─────────────────────────────────────────────────────
   {
     id: "n37",
     title: "ECB Signs Agreements With European Standard Setters for Digital Euro Payments",
